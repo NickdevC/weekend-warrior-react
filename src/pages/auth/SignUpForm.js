@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import signup_image from "../../assets/signup_image.jpg";
 import styles from "../../styles/SignInUpForm.module.css";
@@ -8,6 +8,13 @@ import appStyles from "../../App.module.css";
 import { Form, Button, Image, Col, Row, Container } from "react-bootstrap";
 
 const SignUpForm = () => {
+  const [signUpData, setSignUpData] = useState({
+    username: "",
+    password1: "",
+    password2: "",
+  });
+  const { username, password1, password2 } = signUpData;
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
@@ -22,6 +29,7 @@ const SignUpForm = () => {
                 type="text"
                 placeholder="Username"
                 name="username"
+                value={username}
               />
             </Form.Group>
 
@@ -32,6 +40,7 @@ const SignUpForm = () => {
                 type="password"
                 placeholder="Password"
                 name="password1"
+                value={password1}
               />
             </Form.Group>
 
@@ -42,6 +51,7 @@ const SignUpForm = () => {
                 type="password"
                 placeholder="Confirm password"
                 name="password2"
+                value={password2}
               />
             </Form.Group>
             <Button
@@ -62,10 +72,7 @@ const SignUpForm = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={signup_image}
-        />
+        <Image className={`${appStyles.FillerImage}`} src={signup_image} />
       </Col>
     </Row>
   );
