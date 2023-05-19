@@ -1,5 +1,5 @@
 .Button {
-    font-size: 0.8rem;
+    font-size: 1rem;
     align-self: center;
     border-radius: 100px;
     border-color: transparent;
@@ -24,7 +24,7 @@
   }
   
   .Button:focus {
-    background-color: #2142b2;
+    background-color: #67a359;
   }
   
   .Wide {
@@ -35,7 +35,7 @@
   .Blue,
   .BlueOutline:hover,
   .Bright:hover {
-    background-color: #2142b2;
+    background-color: #be956c;
     color: #ffffff;
   }
   
@@ -64,6 +64,6 @@
   }
   
   .Bright {
-    background-color: #2ed9ff;
-    color: #2142b2;
+    background-color: #67a359;
+    color: #ffffff;
   }
