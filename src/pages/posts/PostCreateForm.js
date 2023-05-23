@@ -52,11 +52,21 @@ function PostCreateForm() {
     <div className="text-center">
       <Form.Group>
         <Form.Label>Title</Form.Label>
-        <Form.Control type="text" name="title" value={title} />
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Subheading</Form.Label>
-        <Form.Control type="text" name="subheading" value={subheading} />
+        <Form.Control
+          type="text"
+          name="subheading"
+          value={subheading}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Location</Form.Label>
@@ -65,11 +75,17 @@ function PostCreateForm() {
           placeholder="Where's the adventure?"
           name="location"
           value={location}
+          onChange={handleChange}
         />
       </Form.Group>
       <Form.Group>
         <Form.Label>Family friendly?</Form.Label>
-        <Form.Control as="select" defaultValue="unsure" name="family">
+        <Form.Control
+          as="select"
+          defaultValue="unsure"
+          name="family"
+          onChange={handleChange}
+        >
           <option value="yes">Yes</option>
           <option value="no">No</option>
           <option value="unsure">Unsure</option>
@@ -77,7 +93,12 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>All weather?</Form.Label>
-        <Form.Control as="select" defaultValue="unsure" name="weather">
+        <Form.Control
+          as="select"
+          defaultValue="unsure"
+          name="weather"
+          onChange={handleChange}
+        >
           <option value="yes">Yes</option>
           <option value="no">No</option>
           <option value="unsure">Unsure</option>
@@ -85,7 +106,12 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Terrain difficulty</Form.Label>
-        <Form.Control as="select" defaultValue="smooth sailing" name="terrain">
+        <Form.Control
+          as="select"
+          defaultValue="smooth sailing"
+          name="terrain"
+          onChange={handleChange}
+        >
           <option value="smooth sailing">Smooth sailing</option>
           <option value="a little bumpy">A little bumpy</option>
           <option value="climbing required">Climbing required</option>
@@ -94,7 +120,12 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Cost?</Form.Label>
-        <Form.Control as="select" defaultValue="free" name="cost">
+        <Form.Control
+          as="select"
+          defaultValue="free"
+          name="cost"
+          onChange={handleChange}
+        >
           <option value="free">Free</option>
           <option value="£">£</option>
           <option value="££">££</option>
@@ -103,7 +134,12 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Duration?</Form.Label>
-        <Form.Control as="select" defaultValue="< 1 hour" name="duration">
+        <Form.Control
+          as="select"
+          defaultValue="< 1 hour"
+          name="duration"
+          onChange={handleChange}
+        >
           <option value="< 1 hour">&lt; 1 hour</option>
           <option value="a few hours">A few hours</option>
           <option value="half-day">Half-day</option>
@@ -117,6 +153,7 @@ function PostCreateForm() {
           rows={6}
           name="description"
           value={description}
+          onChange={handleChange}
         />
       </Form.Group>
       <Button
