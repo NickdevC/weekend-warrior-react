@@ -28,27 +28,54 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Location</Form.Label>
-        <Form.Control type="text" name="location" />
+        <Form.Control
+          type="text"
+          placeholder="Where's the adventure?"
+          name="location"
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Family friendly?</Form.Label>
-        <Form.Control as="select" name="family" />
+        <Form.Control as="select" defaultValue="unsure" name="family">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="unsure">Unsure</option>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>All weather?</Form.Label>
-        <Form.Control as="select" name="weather" />
+        <Form.Control as="select" defaultValue="unsure" name="weather">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="unsure">Unsure</option>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Terrain difficulty</Form.Label>
-        <Form.Control as="select" name="terrain" />
+        <Form.Control as="select" defaultValue="smooth sailing" name="terrain">
+          <option value="smooth sailing">Smooth sailing</option>
+          <option value="a little bumpy">A little bumpy</option>
+          <option value="climbing required">Climbing required</option>
+          <option value="a real challenge">A real challenge!</option>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Cost?</Form.Label>
-        <Form.Control as="select" name="cost" />
+        <Form.Control as="select" defaultValue="free" name="cost">
+          <option value="free">Free</option>
+          <option value="£">£</option>
+          <option value="££">££</option>
+          <option value="£££">£££</option>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Duration?</Form.Label>
-        <Form.Control as="select" name="duration" />
+        <Form.Control as="select" defaultValue="< 1 hour" name="duration">
+          <option value="< 1 hour">&lt; 1 hour</option>
+          <option value="a few hours">A few hours</option>
+          <option value="half-day">Half-day</option>
+          <option value="full-day">Full-day</option>
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Description</Form.Label>
