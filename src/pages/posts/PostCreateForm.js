@@ -11,14 +11,49 @@ import Upload from "../../assets/upload.png";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import Asset from "../../components/Asset";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
   const textFields = (
     <div className="text-center">
-      {/* Add your form fields here */}
-
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control type="text" name="title" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Subheading</Form.Label>
+        <Form.Control type="text" name="subheading" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Location</Form.Label>
+        <Form.Control type="text" name="location" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Family friendly?</Form.Label>
+        <Form.Control as="select" name="family" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>All weather?</Form.Label>
+        <Form.Control as="select" name="weather" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Terrain difficulty</Form.Label>
+        <Form.Control as="select" name="terrain" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Cost?</Form.Label>
+        <Form.Control as="select" name="cost" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Duration?</Form.Label>
+        <Form.Control as="select" name="duration" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Description</Form.Label>
+        <Form.Control as="textarea" rows={6} name="description" />
+      </Form.Group>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => {}}
@@ -43,7 +78,7 @@ function PostCreateForm() {
                 className="d-flex justify-content-center"
                 htmlFor="image-upload"
               >
-                ASSET
+                <Asset src={Upload} message="Click or tap to upload an image" />
               </Form.Label>
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
