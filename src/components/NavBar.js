@@ -3,11 +3,26 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import WW_logo from "../assets/WW_logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const addPostIcon = (
     <NavLink
       className={styles.NavLink}
@@ -17,6 +32,7 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>Add Adventure
     </NavLink>
   );
+
   const loggedInIcons = (
     <>
       <NavLink
@@ -33,7 +49,7 @@ const NavBar = () => {
       >
         <i className="fas fa-heart"></i>Favourites
       </NavLink>
-      <NavLink className={styles.NavLink} to="/" onClick={() => {}}>
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Log Out
       </NavLink>
       <NavLink
