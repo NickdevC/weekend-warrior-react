@@ -16,15 +16,47 @@ import Asset from "../../components/Asset";
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
+  const [postData, setPostData] = useState({
+    title: "",
+    subheading: "",
+    location: "",
+    family: "",
+    weather: "",
+    terrain: "",
+    cost: "",
+    duration: "",
+    description: "",
+    image: "",
+  });
+  const {
+    title,
+    subheading,
+    location,
+    family,
+    weather,
+    terrain,
+    cost,
+    duration,
+    description,
+    image,
+  } = postData;
+
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const textFields = (
     <div className="text-center">
       <Form.Group>
         <Form.Label>Title</Form.Label>
-        <Form.Control type="text" name="title" />
+        <Form.Control type="text" name="title" value={title} />
       </Form.Group>
       <Form.Group>
         <Form.Label>Subheading</Form.Label>
-        <Form.Control type="text" name="subheading" />
+        <Form.Control type="text" name="subheading" value={subheading} />
       </Form.Group>
       <Form.Group>
         <Form.Label>Location</Form.Label>
@@ -32,6 +64,7 @@ function PostCreateForm() {
           type="text"
           placeholder="Where's the adventure?"
           name="location"
+          value={location}
         />
       </Form.Group>
       <Form.Group>
@@ -79,7 +112,12 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" rows={6} name="description" />
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="description"
+          value={description}
+        />
       </Form.Group>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
