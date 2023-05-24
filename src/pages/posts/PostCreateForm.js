@@ -30,7 +30,7 @@ function PostCreateForm() {
     cost: "",
     duration: "",
     description: "",
-    image: "",
+    post_image: "",
   });
   const {
     title,
@@ -42,7 +42,7 @@ function PostCreateForm() {
     cost,
     duration,
     description,
-    image,
+    post_image,
   } = postData;
 
   const imageInput = useRef(null);
@@ -57,10 +57,10 @@ function PostCreateForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(post_image);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        post_image: URL.createObjectURL(event.target.files[0]),
       });
     }
   };
@@ -78,7 +78,7 @@ function PostCreateForm() {
     formData.append("cost", cost);
     formData.append("duration", duration);
     formData.append("description", description);
-    formData.append("image", imageInput.current.files[0]);
+    formData.append("post_image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/adventures/", formData);
@@ -269,10 +269,10 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {image ? (
+              {post_image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
+                    <Image className={appStyles.Image} src={post_image} rounded />
                   </figure>
                   <div>
                     <Form.Label
@@ -302,7 +302,7 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
-            {errors.image?.map((message, idx) => (
+            {errors.post_image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
