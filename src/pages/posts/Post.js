@@ -17,9 +17,9 @@ const Post = (props) => {
     title,
     subheading,
     location,
-    family,
-    weather,
-    terrain,
+    family_friendly,
+    all_weather,
+    terrain_challenge,
     cost,
     duration,
     description,
@@ -67,7 +67,7 @@ const Post = (props) => {
               <span className={styles.Icon}>
                 <i className="fa-solid fa-family" />
               </span>
-              : {family}
+              : {family_friendly}
             </p>
           </Col>
           <Col>
@@ -75,7 +75,7 @@ const Post = (props) => {
               <span className={styles.Icon}>
                 <i className="fa-solid fa-clouds" />
               </span>
-              : {weather}
+              : {all_weather}
             </p>
           </Col>
         </Row>
@@ -85,7 +85,7 @@ const Post = (props) => {
               <span className={styles.Icon}>
                 <i className="fa-solid fa-mountain" />
               </span>
-              : {terrain}
+              : {terrain_challenge}
             </p>
           </Col>
           <Col>

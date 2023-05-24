@@ -24,9 +24,9 @@ function PostCreateForm() {
     title: "",
     subheading: "",
     location: "",
-    family: "",
-    weather: "",
-    terrain: "",
+    family_friendly: "",
+    all_weather: "",
+    terrain_challenge: "",
     cost: "",
     duration: "",
     description: "",
@@ -36,9 +36,9 @@ function PostCreateForm() {
     title,
     subheading,
     location,
-    family,
-    weather,
-    terrain,
+    family_friendly,
+    all_weather,
+    terrain_challenge,
     cost,
     duration,
     description,
@@ -72,9 +72,9 @@ function PostCreateForm() {
     formData.append("title", title);
     formData.append("subheading", subheading);
     formData.append("location", location);
-    formData.append("family", family);
-    formData.append("weather", weather);
-    formData.append("terrain", terrain);
+    formData.append("family_friendly", family_friendly);
+    formData.append("all_weather", all_weather);
+    formData.append("terrain_challenge", terrain_challenge);
     formData.append("cost", cost);
     formData.append("duration", duration);
     formData.append("description", description);
@@ -140,8 +140,8 @@ function PostCreateForm() {
         <Form.Label>Family friendly?</Form.Label>
         <Form.Control
           as="select"
-          defaultValue="unsure"
-          name="family"
+          name="family_friendly"
+          defaultValue="Select..."
           aria-label="family"
           onChange={handleChange}
         >
@@ -159,8 +159,8 @@ function PostCreateForm() {
         <Form.Label>All weather?</Form.Label>
         <Form.Control
           as="select"
-          defaultValue="unsure"
-          name="weather"
+          defaultValue="Select..."
+          name="all_weather"
           aria-label="weather"
           onChange={handleChange}
         >
@@ -178,8 +178,8 @@ function PostCreateForm() {
         <Form.Label>Terrain difficulty</Form.Label>
         <Form.Control
           as="select"
-          defaultValue="smooth sailing"
-          name="terrain"
+          defaultValue="Select..."
+          name="terrain_challenge"
           aria-label="terrain"
           onChange={handleChange}
         >
@@ -198,7 +198,7 @@ function PostCreateForm() {
         <Form.Label>Cost?</Form.Label>
         <Form.Control
           as="select"
-          defaultValue="free"
+          defaultValue="Select..."
           name="cost"
           aria-label="cost"
           onChange={handleChange}
@@ -218,7 +218,7 @@ function PostCreateForm() {
         <Form.Label>Duration?</Form.Label>
         <Form.Control
           as="select"
-          defaultValue="< 1 hour"
+          defaultValue="Select..."
           name="duration"
           aria-label="duration"
           onChange={handleChange}
