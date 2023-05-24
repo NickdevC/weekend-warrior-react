@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -33,10 +34,31 @@ const Post = (props) => {
     post_image,
     updated_at,
     postPage,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleFavourite = async () => {
+    try {
+      const { data } = await axiosRes.post("/favourites/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                favourites_count: post.favourites_count + 1,
+                favourite_id: data.id,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -72,7 +94,7 @@ const Post = (props) => {
           <Col>
             <p>
               <span className={styles.Icon}>
-                <i class="fas fa-child" />
+                <i className="fas fa-child" />
               </span>
               Family friendly? <strong>{family_friendly}</strong>
             </p>
@@ -80,7 +102,7 @@ const Post = (props) => {
           <Col>
             <p>
               <span className={styles.Icon}>
-                <i class="fas fa-cloud" />
+                <i className="fas fa-cloud" />
               </span>
               All weather? <strong>{all_weather}</strong>
             </p>
@@ -98,7 +120,7 @@ const Post = (props) => {
           <Col>
             <p>
               <span className={styles.Icon}>
-                <i class="fas fa-pound-sign" />
+                <i className="fas fa-pound-sign" />
               </span>
               : <strong>{cost}</strong>
             </p>
@@ -106,7 +128,7 @@ const Post = (props) => {
           <Col>
             <p>
               <span className={styles.Icon}>
-                <i class="far fa-clock" />
+                <i className="far fa-clock" />
               </span>
               : <strong>{duration}</strong>
             </p>
@@ -127,7 +149,7 @@ const Post = (props) => {
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleFavourite}>
               <i className={`fas fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
