@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, Row, Col } from "react-bootstrap";
+import { Card, Media, Row, Col, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -57,12 +57,79 @@ const Post = (props) => {
           <Col>
             <p>
               <span className={styles.Icon}>
-                <i class="fa-solid fa-location-crosshairs" />
+                <i className="fa-solid fa-location-crosshairs" />
               </span>
-              {location}
+              : {location}
+            </p>
+          </Col>
+          <Col>
+            <p>
+              <span className={styles.Icon}>
+                <i className="fa-solid fa-family" />
+              </span>
+              : {family}
+            </p>
+          </Col>
+          <Col>
+            <p>
+              <span className={styles.Icon}>
+                <i className="fa-solid fa-clouds" />
+              </span>
+              : {weather}
             </p>
           </Col>
         </Row>
+        <Row className={`${styles.Row} ${styles.Icon}`}>
+          <Col>
+            <p>
+              <span className={styles.Icon}>
+                <i className="fa-solid fa-mountain" />
+              </span>
+              : {terrain}
+            </p>
+          </Col>
+          <Col>
+            <p>
+              <span className={styles.Icon}>
+                <i className="fa-solid fa-circle-sterling" />
+              </span>
+              : {cost}
+            </p>
+          </Col>
+          <Col>
+            <p>
+              <span className={styles.Icon}>
+                <i class="fa-regular fa-timer" />
+              </span>
+              : {duration}
+            </p>
+          </Col>
+        </Row>
+        {description && <Card.Text>{description}</Card.Text>}
+        <div className={styles.PostBar}>
+          {is_owner ? (
+            <OverlayTrigger placement="top" overlay={<Tooltip>You cannot like your own post!</Tooltip>}>
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          ) : favourite_id ? (
+            <span onClick={() =>{}}>
+              <i className={`fas fa-heart ${styles.Heart}`} />
+            </span>
+          ) : currentUser ? (
+            <span onClick={() =>{}}>
+              <i className={`fas fa-heart ${styles.HeartOutline}`} />
+            </span>
+          ) : (
+            <OverlayTrigger placement="top" overlay={<Tooltip>Log in to favourite a post!</Tooltip>}>
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          )}
+          {favourites_count}
+          <Link to={`/posts/${id}`}>
+            <i className="far fa-comments" />
+          </Link>
+          {comments_count}
+        </div>
       </Card.Body>
     </Card>
   );
