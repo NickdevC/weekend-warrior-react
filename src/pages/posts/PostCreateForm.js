@@ -13,6 +13,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
@@ -42,6 +43,9 @@ function PostCreateForm() {
     image,
   } = postData;
 
+  const imageInput = useRef(null);
+  const history = useHistory();
+
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -56,6 +60,32 @@ function PostCreateForm() {
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("subheading", subheading);
+    formData.append("location", location);
+    formData.append("family", family);
+    formData.append("weather", weather);
+    formData.append("terrain", terrain);
+    formData.append("cost", cost);
+    formData.append("duration", duration);
+    formData.append("description", description);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/posts/", formData);
+      history.push(`/posts/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -222,6 +252,7 @@ function PostCreateForm() {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                ref={imageInput}
               />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
