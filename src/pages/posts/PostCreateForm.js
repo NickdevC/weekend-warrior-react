@@ -14,7 +14,7 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults"
+import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
@@ -101,6 +101,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.title?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Subheading</Form.Label>
         <Form.Control
@@ -110,6 +115,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.subheading?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Location</Form.Label>
         <Form.Control
@@ -120,6 +130,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.location?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Family friendly?</Form.Label>
         <Form.Control
@@ -134,6 +149,11 @@ function PostCreateForm() {
           <option value="unsure">Unsure</option>
         </Form.Control>
       </Form.Group>
+      {errors.family?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>All weather?</Form.Label>
         <Form.Control
@@ -148,6 +168,11 @@ function PostCreateForm() {
           <option value="unsure">Unsure</option>
         </Form.Control>
       </Form.Group>
+      {errors.weather?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Terrain difficulty</Form.Label>
         <Form.Control
@@ -163,6 +188,11 @@ function PostCreateForm() {
           <option value="a real challenge">A real challenge!</option>
         </Form.Control>
       </Form.Group>
+      {errors.terrain?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Cost?</Form.Label>
         <Form.Control
@@ -178,6 +208,11 @@ function PostCreateForm() {
           <option value="£££">£££</option>
         </Form.Control>
       </Form.Group>
+      {errors.cost?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Duration?</Form.Label>
         <Form.Control
@@ -193,6 +228,11 @@ function PostCreateForm() {
           <option value="full-day">Full-day</option>
         </Form.Control>
       </Form.Group>
+      {errors.duration?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control
@@ -203,6 +243,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.description?.map((message, idx) => (
+        <Alert variant="danger" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -256,6 +301,11 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors.image?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
