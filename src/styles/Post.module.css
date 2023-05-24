@@ -22,3 +22,17 @@ h5 {
 .HeartOutline:hover {
   color: #f85032;
 }
+
+.Subheading {
+  font-style: italic;
+}
+
+.Row {
+  justify-content: space-evenly;
+}
+
+.Icon > i {
+  color:#67a359;
+  cursor: default;
+  
+}

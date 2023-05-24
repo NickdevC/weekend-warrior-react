@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media } from "react-bootstrap";
+import { Card, Media, Row, Col } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -50,7 +50,19 @@ const Post = (props) => {
       </Link>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {description && <Card.Text>{description}</Card.Text>}
+        {subheading && (
+          <Card.Text className={styles.Subheading}>{subheading}</Card.Text>
+        )}
+        <Row className={`${styles.Row} ${styles.Icon}`}>
+          <Col>
+            <p>
+              <span className={styles.Icon}>
+                <i class="fa-solid fa-location-crosshairs" />
+              </span>
+              {location}
+            </p>
+          </Col>
+        </Row>
       </Card.Body>
     </Card>
   );
