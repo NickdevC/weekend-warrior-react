@@ -140,7 +140,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="unsure"
           name="weather"
-          aria-Label="weather"
+          aria-label="weather"
           onChange={handleChange}
         >
           <option value="yes">Yes</option>
@@ -154,7 +154,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="smooth sailing"
           name="terrain"
-          aria-Label="terrain"
+          aria-label="terrain"
           onChange={handleChange}
         >
           <option value="smooth sailing">Smooth sailing</option>
@@ -169,7 +169,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="free"
           name="cost"
-          aria-Label="cost"
+          aria-label="cost"
           onChange={handleChange}
         >
           <option value="free">Free</option>
@@ -184,7 +184,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="< 1 hour"
           name="duration"
-          aria-Label="duration"
+          aria-label="duration"
           onChange={handleChange}
         >
           <option value="< 1 hour">&lt; 1 hour</option>
