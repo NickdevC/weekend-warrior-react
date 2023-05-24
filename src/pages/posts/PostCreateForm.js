@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -14,6 +14,7 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults"
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
@@ -125,7 +126,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="unsure"
           name="family"
-          value={family}
+          aria-label="family"
           onChange={handleChange}
         >
           <option value="yes">Yes</option>
@@ -139,7 +140,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="unsure"
           name="weather"
-          value={weather}
+          aria-Label="weather"
           onChange={handleChange}
         >
           <option value="yes">Yes</option>
@@ -153,7 +154,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="smooth sailing"
           name="terrain"
-          value={terrain}
+          aria-Label="terrain"
           onChange={handleChange}
         >
           <option value="smooth sailing">Smooth sailing</option>
@@ -168,7 +169,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="free"
           name="cost"
-          value={cost}
+          aria-Label="cost"
           onChange={handleChange}
         >
           <option value="free">Free</option>
@@ -183,7 +184,7 @@ function PostCreateForm() {
           as="select"
           defaultValue="< 1 hour"
           name="duration"
-          value={duration}
+          aria-Label="duration"
           onChange={handleChange}
         >
           <option value="< 1 hour">&lt; 1 hour</option>
