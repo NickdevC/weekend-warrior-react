@@ -8,8 +8,11 @@ import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/adventures/PostCreateForm";
 import PostPage from "./pages/adventures/PostPage";
 import PostsPage from "./pages/adventures/PostsPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
   return (
     <div className={styles.App}>
       <NavBar />
@@ -20,6 +23,26 @@ function App() {
             path="/"
             render={() => (
               <PostsPage message="No results found. Adjust the search keyword." />
+            )}
+          />
+          <Route
+            exact
+            path="/feed"
+            render={() => (
+              <PostsPage
+                message="No results found. Adjust the search keyword or follow a user."
+                filter={`owner__followed__owner__profile=${profile_id}&`}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/favourited"
+            render={() => (
+              <PostsPage 
+                message="No results found. Adjust the search keyword or favourite a post." 
+                filter={`favourites__owner__profile=${profile_id}&ordering=-favourites__created_at&`}
+              />
             )}
           />
           <Route exact path="/login" render={() => <SignInForm />} />
