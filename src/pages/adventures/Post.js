@@ -41,8 +41,12 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
 
   const handleFavourite = async () => {
+    console.log("handleFavourite function working");
+    console.log("ID", id);
     try {
-      const { data } = await axiosRes.post("/favourites/", { post: id });
+      const { data } = await axiosRes.post("/favourites/", {
+        adventure_post: id,
+      });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
