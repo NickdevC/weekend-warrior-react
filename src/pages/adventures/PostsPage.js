@@ -11,6 +11,9 @@ import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
+import NoResults from "../../assets/WW-no-results.png";
+import Asset from "../../components/Asset";
+
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -38,15 +41,17 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              posts.results.map(post = > (
-                <Post />
+              posts.results.map((post) => (
+                <Post key={post.id} {...post} setPosts={setPosts} />
               ))
             ) : (
-              console.log('show no results assets')
+              <Container className={appStyles.Content}>
+                <Asset src={NoResults} message={message} />
+              </Container>
             )}
           </>
         ) : (
-          console.log('show loading spinner')
+          console.log("show loading spinner")
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
