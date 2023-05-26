@@ -69,6 +69,10 @@ function PostsPage({ message, filter = "" }) {
                 children={posts.results.map((post) => (
                   <Post key={post.id} {...post} setPosts={setPosts} />
                 ))}
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => {}}
               />
             ) : (
               <Container className={appStyles.Content}>
