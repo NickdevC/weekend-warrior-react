@@ -24,7 +24,9 @@ function PostsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/adventures/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(
+          `/adventures/?${filter}search=${query}`
+        );
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
@@ -33,7 +35,12 @@ function PostsPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
-    fetchPosts();
+    const timer = setTimeout(() => {
+      fetchPosts();
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [filter, query, pathname]);
 
   return (
