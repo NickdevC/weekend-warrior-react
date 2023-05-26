@@ -37,7 +37,7 @@ function App() {
           />
           <Route
             exact
-            path="/favourited"
+            path="/favourites"
             render={() => (
               <PostsPage 
                 message="No results found. Adjust the search keyword or favourite a post." 
