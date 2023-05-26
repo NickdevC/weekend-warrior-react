@@ -145,6 +145,7 @@ function PostCreateForm() {
           aria-label="family"
           onChange={handleChange}
         >
+          <option value="-">-</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
           <option value="unsure">Unsure</option>
@@ -164,6 +165,7 @@ function PostCreateForm() {
           aria-label="weather"
           onChange={handleChange}
         >
+          <option value="-">-</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
           <option value="unsure">Unsure</option>
@@ -183,6 +185,7 @@ function PostCreateForm() {
           aria-label="terrain"
           onChange={handleChange}
         >
+          <option value="-">-</option>
           <option value="smooth sailing">Smooth sailing</option>
           <option value="a little bumpy">A little bumpy</option>
           <option value="climbing required">Climbing required</option>
@@ -203,6 +206,7 @@ function PostCreateForm() {
           aria-label="cost"
           onChange={handleChange}
         >
+          <option value="-">-</option>
           <option value="free">Free</option>
           <option value="£">£</option>
           <option value="££">££</option>
@@ -223,6 +227,7 @@ function PostCreateForm() {
           aria-label="duration"
           onChange={handleChange}
         >
+          <option value="-">-</option>
           <option value="< 1 hour">&lt; 1 hour</option>
           <option value="a few hours">A few hours</option>
           <option value="half-day">Half-day</option>
