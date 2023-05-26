@@ -41,7 +41,7 @@ function App() {
             render={() => (
               <PostsPage 
                 message="No results found. Adjust the search keyword or favourite a post." 
-                filter={`favourites__owner__profile=${profile_id}&ordering=-favourites__created_at&`}
+                filter={`favourited__owner__profile=${profile_id}&ordering=-favourites__created_at&`}
               />
             )}
           />
