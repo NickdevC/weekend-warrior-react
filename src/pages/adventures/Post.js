@@ -10,8 +10,9 @@ import {
   Tooltip,
 } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Post = (props) => {
   const {
@@ -39,6 +40,20 @@ const Post = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = async () => {
+    history.push(`/adventures/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/adventures/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleFavourite = async () => {
     console.log("handleFavourite function working");
@@ -94,7 +109,12 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && "..."}
+            {is_owner && postPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
