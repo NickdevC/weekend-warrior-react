@@ -9,6 +9,7 @@ import PostCreateForm from "./pages/adventures/PostCreateForm";
 import PostPage from "./pages/adventures/PostPage";
 import PostsPage from "./pages/adventures/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import PostEditForm from "./pages/adventures/PostEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -39,8 +40,8 @@ function App() {
             exact
             path="/favourites"
             render={() => (
-              <PostsPage 
-                message="No results found. Adjust the search keyword or favourite a post." 
+              <PostsPage
+                message="No results found. Adjust the search keyword or favourite a post."
                 filter={`favourited__owner__profile=${profile_id}&ordering=-favourites__created_at&`}
               />
             )}
@@ -53,6 +54,11 @@ function App() {
             render={() => <PostCreateForm />}
           />
           <Route exact path="/adventures/:id" render={() => <PostPage />} />
+          <Route
+            exact
+            path="/adventures/:id/edit"
+            render={() => <PostEditForm />}
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
