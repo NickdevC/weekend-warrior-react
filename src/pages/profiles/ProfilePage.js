@@ -61,15 +61,47 @@ function ProfilePage() {
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
-                <div>{profile?.adventures_count}</div>
-                <div>posts</div>
+              <div>{profile?.adventures_count}</div>
+              <div>posts</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.followers_count}</div>
+              <div>followers</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.following_count}</div>
+              <div>following</div>
+            </Col>
+          </Row>
+          <Row className="justify-content-center no-gutters">
+            <Col xs={3} className="my-2">
+              <span className={styles.Icon}>
+                <i className="fa-solid fa-location-crosshairs" />
+              </span>
+              : <strong>{profile?.location}</strong>
             </Col>
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
-          <p>Follow button</p>
+          {currentUser &&
+            !is_owner &&
+            (profile?.following_id ? (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                onClick={() => {}}
+              >
+                unfollow
+              </Button>
+            ) : (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                onClick={() => {}}
+              >
+                follow
+              </Button>
+            ))}
         </Col>
-        <Col className="p-3">Profile content</Col>
+        {profile?.about_me && <Col className="p-3">{profile.about_me}</Col>}
       </Row>
     </>
   );

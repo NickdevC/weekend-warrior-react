@@ -1,3 +1,9 @@
 .WordBreak {
     word-break: break-all;
 }
+
+.Icon > i {
+    color:#67a359;
+    cursor: default;
+    
+  }
