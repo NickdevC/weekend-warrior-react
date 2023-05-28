@@ -1,4 +1,8 @@
-<h1 align="center">Weekend Warrior (social media app)</h1>
+<h1 align="center">:evergreen_tree: Weekend Warrior :evergreen_tree:</h1>
+<h3 align="center"><i>Where we take "living for the weekend" very seriously!</i></h3>
+<hr />
+
+<img src="src/assets/readme_images/responsive_display.png" width="auto" align="center">
 
 <!-- <img src="static/images/responsive.png" width="auto"> -->
 
