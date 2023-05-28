@@ -5,3 +5,35 @@
   border: 1px solid #67a359;
   margin-top: 10px;
 }
+
+.Row {
+    height: calc(100vh - 81px);
+  }
+  .Input {
+    background: #ffffff;
+    border: 1px solid #f0f1f9;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #67a359;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .Header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #67a359;
+  }
+
+  .Container {
+    padding: 30px 10px;
+  }
+  
+  .PictureCol {
+    height: 375px;
+  }

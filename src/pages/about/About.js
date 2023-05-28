@@ -2,14 +2,17 @@ import React from 'react';
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
 import styles from "../../styles/About.module.css";
+import appStyles from "../../App.module.css";
 import { useRedirect } from "../../hooks/useRedirect";
+import about_image from "../../assets/about_image.jpg";
 
 function About() {
   useRedirect("loggedOut");
   return (
     <Row className={styles.Row}>
-        <Col>
+        <Col className="my-auto py-2 p-md-2" md={6}>
             <Container className={`${styles.Content} p-4 text-center`}>
             <h2>
                 <strong>About us</strong>
@@ -38,6 +41,12 @@ function About() {
             </p>
             <br />
             </Container>
+      </Col>
+      <Col
+        md={6}
+        className={`my-auto d-none d-md-block p-2 ${styles.PictureCol}`}
+      >
+        <Image className={`${appStyles.FillerImage}`} src={about_image} />
       </Col>
     </Row>
   );
