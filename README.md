@@ -349,53 +349,59 @@ All of the data structuring was completed when creating my backend API. The repo
 
 ## Performance Testing
 
-### Lighthouse
-
-<img src="static/images/lighthouse-scores.png" width="auto">
-
 ### HTML Validation
 
-* HTML code was run through a validator with one reoccuring error (see image). This error did not seem to affect the overall performance of the site, and was a requirement for one of the installed libraries, therfor I deemed it necessary to ignore the error.
-
-<img src="static/images/html-error.png" width="auto">
-
-* In addition, my 'appointments.html' template had an error regarding the repetition of an ID linked to my delete modal. I have tried to find a solution to correct this, and have tried suggestions from the Slack community but none have proven to be successful. The page functions and passes all other tests, and I have limited time to work on this. If I had more time, I would look to resolving the issue.
-
-<img src="static/images/modal-error.png" width="auto">
+<img src="src/assets/html_validation.png">
 
 ### CSS
 
-<img src="static/images/css-validation.png" width="auto">
+<img src="src/assets/css_validation.png">
 
 ### Python
 
 **Note - PEP8 no longer offers their validation services**
 
-With 'pycodestyle' installed in my workspace, I was able to see and correct errors within my code. I am satisfied that those errors have now been resolved.
+With 'pycodestyle' installed in my workspace, I was able to see and correct errors within my code (mainly pertaining to lengthy lines). I am satisfied that those errors have now been resolved.
+
+### Responsive Testing
+
+The website has been tested using the following browsers:
+
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
+- Safari
+
+The website has been tested on the following devices: 
+
+- MacBook Air
+- Apple Ipad
+- Huwawei p20
+
+During testing it was found that some users were unable to log in if using Firefox or Safari. Turning off “Prevent Cross-Site Tracking” in the browser settings, seems to fix this issue.
 
 ## Bugs
 
 During the development process and through consistent user testing, I was able to identify and find solutions to a number of bugs. Engaging with fellow Code Institue students (see 'Credits') I was able to recieve regular user feedback and work on solutions in a timely manner.
 
-| Link to Bug | Description | Solution |
+| Location/feature | Description | Solution |
 | ----- | -------- | ------- |
-| [#1](https://github.com/NickdevC/Home-Learning-Hub/issues/21#issue-1574485639) | Choices within a CharField were rendering as numerical values rather than strings | Used the 'get_FOO_display' method [Stack Overflow](https://stackoverflow.com/questions/49091870/django-template-force-choices-on-field-and-print-display-value-with-get-foo-dis) |
-| [#2](https://github.com/NickdevC/Home-Learning-Hub/issues/22#issue-1574493640) | TextField displays html tags along with the content itself to the user | Add the 'safe' tag to my TextField variables [Django Project](https://docs.djangoproject.com/en/1.8/ref/templates/builtins/#safe) |
-| [#3](https://github.com/NickdevC/Home-Learning-Hub/issues/25#issue-1587902889) | The delete modal would not display when users clicked the 'delete' button | Found small syntax differences between Bootstrap 4 and 5. I needed to update to the V5 syntax 'data-**bs**-dismiss=' and link this in my urls.py file |
-| [#4](https://github.com/NickdevC/Home-Learning-Hub/issues/26#issue-1589889951) | Users were able to book duplicate appointments with the same teacher/date/time data | I added the 'unique_together' attrib in the model [Stack Overflow](https://stackoverflow.com/questions/25170071/how-do-i-use-unique-together-in-django) |
-| [#5](https://github.com/NickdevC/Home-Learning-Hub/issues/33#issue-1599959933) | Users were able to book an appointment using a date from the past | I created and added a custom validator to the Appointment model [Django Project](https://docs.djangoproject.com/en/2.2/ref/validators/) |
-| [#5](https://github.com/NickdevC/Home-Learning-Hub/issues/30#issue-1599717586) | When users navigated through different pages, the navbar was unresponsive and did not display any 'active' status | I installed Django Active-Links and added the additional code to the nav-links [Django-Active-Links](https://django-active-link.readthedocs.io/en/latest/readme.html) |
-| [#6](https://github.com/NickdevC/Home-Learning-Hub/issues/31#issue-1599718423) | When uploading a file through the admin panel, the file is visible in Cloudinary storage but does not appear to the user on the front-end | I needed to add '.url' to the href in the 'Resource Library' template |
-| [#7](https://github.com/NickdevC/Home-Learning-Hub/issues/32#issue-1599959327) | When uploading a file from the front-end, the files in question would not appear in Cloudinary storage | I needed to pass ‘request.FILES’ to the ResourceForm [Django Project](https://docs.djangoproject.com/en/4.1/topics/http/file-uploads/) |
+| Navlink (i elements) | On 'hover', these elements remained blue from the CI boilerplate css. I could not overide them. | Explored inheritance, and altered this to target the specific element. |
+| profile_image (avatar) | Image was not displaying correctly (showing broken link). | User serializer path was incorrect, it was `profile.image.url` and needed to be `profile.profile_image.url` |
+| Creating an adventure post | Trying to include a '<' symbol within text fields. It would not allow me to do this and it would throw the rest of the code. | Researching on w3schools, I realised I needed to use HTML entities, specifically `&lt;` |
+| Submitting an adventure post | I kept receiving a `CORS error` and the form would not submit. | I went to the try/catch block in the function and realised the axios key had the wrong url path, it needed to be `/adventures/` rather than `/posts/` |
+| Post.js | Some font awesome logos refused to render and were not displaying properly when inspecting in dev tools. | Checked my version of FA and realised I needed to use an older version. Imported those versions, and all icons rendered. |
+| PostPage.js | The adventure posts were not displaying the 1st option in the option fields from the adventures model. It kept returning as 'none'. | I added an additional 1st option to the return statement, as a placeholder of '-'. That way if the user decided to leave the field blank, '-' would display. |
+| ProfilePage.js | The page was not displaying any of the counts for: followers, following or adventure posts. | On investigating, and with the support of the Slack community, I was able to see that I had made an error back in my API. The views.py for my profiles had a duplicate `queryset` statement that was cancelling out the request. |
 
 [Return to contents](#contents)
 
 ## Future Features
 
 If I were to have more time on the project I would consider implementing the following features:
-* Different user models, allowing for different privileges across the site. For example, user could be split into: Admin, Teacher, Parent, and Pupil.
-* Automated email confirmation - this is something that I put as a `Could Have` user story on my [kanban board](https://github.com/users/NickdevC/projects/4) and would essentially require users to supply an email address when booking an appointment. When the appointment was submitted, they would receive an email confirmation and a link to apply the appointment to their calendar.
-* Integrate an app for facilitating a video/audio appointment (I would need to look into whether there are APIs already available to facilitate this)
+* Added a 'Contact form' for users to contact the website administrators.
+* The ability for users to comment on others' comments, creating threads of conversations.
+* A rating system in the adventures model, to allow users to cast their star rating on an adventure post.
 
 
 # Deployment
