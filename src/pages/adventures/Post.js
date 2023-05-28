@@ -205,7 +205,7 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {favourites_count}
-          <Link to={`/posts/${id}`}>
+          <Link to={`/adventures/${id}`}>
             <i className="far fa-comments" />
           </Link>
           {comments_count}
