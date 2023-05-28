@@ -6,6 +6,10 @@
   margin-top: 10px;
 }
 
+.Sub {
+    font-style: italic;
+}
+
 .Row {
     height: calc(100vh - 81px);
   }

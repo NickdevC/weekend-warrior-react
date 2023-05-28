@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -12,35 +12,45 @@ function About() {
   useRedirect("loggedOut");
   return (
     <Row className={styles.Row}>
-        <Col className="my-auto py-2 p-md-2" md={6}>
-            <Container className={`${styles.Content} p-4 text-center`}>
-            <h2>
-                <strong>About us</strong>
-            </h2>
-            <hr />
-            <p>
-                Welcome to The Winding Path! 
-            </p>
-            <p>
-                The Winding Path is a place where lovers of the great outdoors can post information about their favourite walks,
-                and share artwork and photography inspired by the beautiful natural world they encounter. 
-            </p>
-            <p>
-                <strong>Create a Walk Post</strong> - share handy information on your favourite walks,
-                so that fellow community members know what to expect if they follow in your footsteps.
-            </p>
-            <p>
-                <strong>Create a Gallery Post</strong> - If photography or artwork is your thing, share your creations with a Gallery Post.
-            </p>
-            <p>
-            <strong>Interact</strong> - You can save your favourite walk posts and access them in your Saved Walks feed, as well as post
-                comments on individual posts. Gallery posts can be liked and commented on too. 
-            </p>
-            <p>
-                Create your first post to get started. Happy hiking!
-            </p>
-            <br />
-            </Container>
+      <Col className="my-auto py-2 p-md-2" md={6}>
+        <Container className={`${styles.Content} p-4 text-center`}>
+          <h2>
+            <strong>Weekend Warrior</strong>
+          </h2>
+          <hr />
+          <p className={styles.Sub}>
+            ...Where we take 'living for the weekend' very seriously!
+          </p>
+          <hr />
+          <p>
+            <strong>Weekend Warrior</strong> is an app that encourages people to
+            come together and share experiences that are perfect for the
+            weekend. On the surface, we are a social networking space, but at
+            our heart, we hope to be an inspiration - a 'motivator of adventure'
+            if you will.
+          </p>
+          <p>
+            Sign up for an account and you will be able to <strong>post</strong>{" "}
+            about your most recent weekend experience, sharing all the key
+            information that other's will find helpful. You can browse other's
+            <strong> posts</strong> and even <strong>favourite</strong> the posts
+            that you don't want to forget. If you want clarity on an adventure,
+            or simply want to tell a user how 'freaking awesome' they are, then
+            you can add a <strong>comment</strong>!
+          </p>
+          <p>
+            Feel free to browse the <strong>popular profiles</strong> and if you
+            find someone who shares a similar taste for adventure as you, then{" "}
+            <strong>follow them</strong> and forever be updated by their
+            activity in your <strong>feed</strong>.
+          </p>
+          <p>
+            So, what are you waiting for? Go start exploring your next adventure
+            and be a true
+            <strong> Weekend Warrior!</strong>
+          </p>
+          <br />
+        </Container>
       </Col>
       <Col
         md={6}
