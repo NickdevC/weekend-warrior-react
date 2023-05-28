@@ -266,42 +266,46 @@ All of the data structuring was completed when creating my backend API. The repo
 
 <img src="src/assets/readme_images/moreDropdown_menu.png">
 
+#### Potential Future Features
+
+* The ability for users to comment on existing comments, creating mini threads within an adventure post
+* The ability for users to comment using images of their own
+
 [Return to contents](#contents)
 
 # Technologies Used 
 
 ## Languages
-* [HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) - The markup language used to create the structure of the site.
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to style elements of the site.
-* [JavaScript](https://www.javascript.com/) - Used to add interactivity to elements of the site.
-* [Python](https://www.python.org/) - Primary language used to develop the back-end portions of the site.
+* HTML
+* CSS
+* JSX
+* Javascript
 
 ## Frameworks/libraries
-* [Django](https://www.djangoproject.com/) - Python web framework providing pre-built syntax structures and providing essential 'app' file structures.
-  - [Django AllAuth](https://django-allauth.readthedocs.io/en/latest/) - Integrated set of Django applications addressing authentication, registration, and account management.
-  - [Django Summernote](https://github.com/summernote/django-summernote) - A simple WYSIWYG editor for use with Django.
-  - [Django CrispyForms](https://django-crispy-forms.readthedocs.io/en/latest/) - Gives added control and choices with regards to the rendering behavior of Django forms.
-  - [Django Active-Link](https://django-active-link.readthedocs.io/en/latest/readme.html) - A simple way to highlight active links in a Django app.
-* [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - CSS web framework providing in-built classes to support design and responsiveness.
+* Django Rest Framework - back end API
+* React.JS - All components used to create and render the front-end
+* React Bootstrap - Provided additional styling options
+* Gitpod - CLI workspace
+* Github - Hosting platform for repository
+* Heroku - Used to host and deploy the live app
 
 ## Databases
-* [ElephantSQL](https://www.elephantsql.com/) - Database used to store all models and user-generated data.
-* [Cloudinary](https://cloudinary.com/) - Cloud database for storing images and uploaded files from the front-end of my app.
+* ElephantSQL - Database used to store all models and user-generated data.
+* Cloudinary - Cloud database for storing images and uploaded files from the front-end of my app.
 
 ## Other Tools
-* [Heroku](https://www.heroku.com/) - A cloud platform used for hosting the app.
-* [Github](https://github.com/github) - Used to host my app's source code. Also provided the tools for creating *issues* and a *kanban board* for my agile approach to development.
-* [Git](https://git-scm.com/) - Git is an open source distributed version control system used to manage all code.
-* [Pip3](https://pypi.org/project/pip/) - The package installer for Python, used to install packages from the Python Package Index and other indexes.
-* [Gunicorn](https://gunicorn.org/) - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX (translates HTTP requests for Python to understand).
-* [Pyscopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for Python.
-* [VScode](https://code.visualstudio.com/) - A code editor redefined and optimized for building and debugging modern web and cloud applications. 
-* [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - A set of web developer tools built directly into the Google Chrome browser. Used to help debug my code during development.
-* [Google Fonts](https://fonts.google.com/) - A font catalogue, providing a variety of free custom fonts.
-* [Font Awesome](https://fontawesome.com/) - An online icon library, used to provide small icons for social links and navigation functions.
-* [Coolors](https://coolors.co/) - Used to research colours and create a palette for the project.
-* [Balsamiq](https://balsamiq.com/wireframes/) - Used to create wireframes of the site during planning stages.
-* [Lucidchart](https://www.lucidchart.com/pages/) - Used to create and display model structures.
+* Pip3 - The package installer for Python, used to install packages from the Python Package Index and other indexes.
+* Gunicorn - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX (translates HTTP requests for Python to understand).
+* Pyscopg2 - PostgreSQL database adapter for Python.
+* VScode - A code editor redefined and optimized for building and debugging modern web and cloud applications. 
+* Chrome Dev Tools - A set of web developer tools built directly into the Google Chrome browser. Used to help debug my code during development.
+* Google Fonts - A font catalogue, providing a variety of free custom fonts.
+* Font Awesome - An online icon library, used to provide small icons for social links and navigation functions.
+* Coolors - Used to research colours and create a palette for the project.
+* Balsamiq - Used to create wireframes of the site during planning stages.
+* Favicon - Used to create favicon for app.
+* AmIResponsive - Used to check responsiveness on multiple devices.
+* DrawSQL - Used to create and display model structures.
 
 [Return to contents](#contents)
 
@@ -396,104 +400,59 @@ If I were to have more time on the project I would consider implementing the fol
 
 # Deployment
 
-This app was deployed through Heroku. The live link is [here](https://nickdevc-home-learning-hub.herokuapp.com/)
+## Forking the GitHub Repository
 
-- Fork/clone this repository
-- Create a new app on Heroku
-- Link the app on Heroku to the repository
-- Click on the 'Deploy' button
+1. Go to [the project repository](https://github.com/NickdevC/weekend-warrior-react)
+2. In the right most top menu, click the "Fork" button.
+3. There will now be a copy of the repository in your own GitHub account.
+
+## Running the project locally
+
+1. Go to [the project repository](https://github.com/NickdevC/weekend-warrior-react)
+2. Click on the "Code" button.
+3. Choose one of the three options (HTTPS, SSH or GitHub CLI) and then click copy.
+4. Open the terminal in you IDE program.
+5. Type `git clone` and paste the URL that was copied in step 3.
+6. Press Enter and the local clone will be created.
+
+### Alternatively by using Gitpod:
+
+1. Go to [the project repository](https://github.com/NickdevC/weekend-warrior-react)
+2. Click the green button that says "Gitpod" and the project will now open up in Gitpod.
+
+## Deploying with Heroku
+
+1. Go to [Heroku.com](https://dashboard.heroku.com/apps) and log in; if you do not already have an account then you will need to create one.
+2. Click the `New` dropdown and select `Create New App`.
+3. Enter a name for your new project, all Heroku apps need to have a unique name, you will be prompted if you need to change it.
+4. Select the region you are working in.
+
+### Heroku Deployment
+
+In the Deploy tab:
+
+1. Connect your Heroku account to your Github Repository following these steps:
+   - Click on the `Deploy` tab and choose `Github-Connect to Github`.
+   - Enter the GitHub repository name and click on `Search`.
+   - Choose the correct repository for your application and click on `Connect`.
+2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
+3. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should now see the `View` button, click this to open your application.
 
 # Credits
 
 ## Websites
 
-* [Pixabay](https://pixabay.com/users/elf-moondance-19728901/) - images by artist Elf-Moondance
-* [Getbootstrap](https://getbootstrap.com/docs/5.0/examples/heroes/) - Examples of hero images/banners in Bootstrap5 provided structure for my hero banners
-* [Django Active-Link](https://django-active-link.readthedocs.io/en/latest/readme.html) - Provided me with documentation on how to implement 'active-link' into my project
-* [Stack Overflow](https://stackoverflow.com/questions/49091870/django-template-force-choices-on-field-and-print-display-value-with-get-foo-dis) - Supported me in understanding the 'get_FOO_display' syntax
-* [Stack Overflow](https://stackoverflow.com/questions/25170071/how-do-i-use-unique-together-in-django ) - Supported me in understandin the 'unique_together' attribute
-* [Django Project](https://docs.djangoproject.com/en/4.1/topics/http/file-uploads/) - I learnt how to upload files using the documentation provided by Django Project
-* [Django Project](https://docs.djangoproject.com/en/2.2/ref/validators/) - I learnt how validators work in Django using the documentation provided by Django Project
+* [Pixabay](https://pixabay.com/) - Stock images were used for the app design and for profile images.
+* [React Bootstrap Docs](https://react-bootstrap-v4.netlify.app/) - The official docs for React Bootstrap components.
+* [Stack Overflow](https://stackoverflow.com/) - Supported me in understanding: try/catch blocks, Routes in React, and adding custom fields to models in Django Rest.
 
 ## Acknowledgements
 
-* The Code Institute walkthrough projects 'Hello Django' and 'I Think Therfor I Blog' for providing some structure and direction for my personal project.
-* A special mention to my mentor Martina Terlevic who has accomodated me along the way, supporting with queries 'on the fly' and providing invaluable guidance during project milestone meetings. 
-* I have enormous gratitude for the patience, and experience offered by tutor support members: Oisin, Rebecca and Martin. All three helped me work through problems systematically and those processes themselves taught me a great deal with regards to debugging and **reading** code.
-* I also want to thank [Chris.F](https://github.com/Chrisfaherty) and [Chris.B](https://github.com/Christoph33one) (fellow Code Institute students). By joining together and engaging in remote study sessions your conversation and input kept me on track and motivated to push myself with regards to the project. By regularly talking through our code, I'd like to think we replicated as much of the 'agile' process as we could!
+* The Code Institute walkthrough project 'Moments' for providing some structure and direction for my personal project.
+* My mentor Martina Terlevic who has accomodated me along the way, supporting with queries 'on the fly' and providing invaluable guidance during project milestone meetings. 
+* Code Institute tutors for helping to guide me through some difficult debugging (this process was often what caused the most retained learning for me).
+* I also want to thank [Chris.F](https://github.com/Chrisfaherty) and [Chris.B](https://github.com/Christoph33one) (fellow Code Institute students). By joining together and engaging in remote study sessions your conversation and input kept me on track and motivated to push myself with regards to the project. Constructive venting and questioning, both contributed to much needed progress!
 
-[Deployed Live Site](https://nickdevc-home-learning-hub.herokuapp.com/)
+[Deployed Live Site](https://weekend-warrior-nickdevc.herokuapp.com/)
 
 [Return to contents](#contents)
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
