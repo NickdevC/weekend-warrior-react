@@ -30,7 +30,7 @@ function ProfilePage() {
   const [profilePosts, setProfilePosts] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+  const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
@@ -84,11 +84,26 @@ function ProfilePage() {
             </Col>
           </Row>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col className="my-2">
               <span className={styles.Icon}>
                 <i className="fa-solid fa-location-crosshairs" />
+                : <strong>{profile?.location}</strong>
               </span>
-              : <strong>{profile?.location}</strong>
+              
+            </Col>
+          </Row>
+          <Row className="justify-content-center no-gutters">
+            <Col xs={6} className="my-1">
+              <p><strong>About me:</strong></p>
+              {profile?.about_me && (
+                <Col className="p-1">{profile.about_me}</Col>
+              )}
+            </Col>
+            <Col xs={6} className="my-1">
+              <p><strong>My interests:</strong></p>
+              {profile?.interests && (
+                <Col className="p-1">{profile.interests}</Col>
+              )}
             </Col>
           </Row>
         </Col>
@@ -111,7 +126,6 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.about_me && <Col className="p-3">{profile.about_me}</Col>}
       </Row>
     </>
   );
@@ -119,7 +133,9 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center">
+        <strong>{profile?.owner}'s posts...</strong>
+      </p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
