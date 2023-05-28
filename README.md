@@ -311,51 +311,31 @@ All of the data structuring was completed when creating my backend API. The repo
 
 # Testing
 
-## User Testing
+## Unit Testing (automated)
+
+I carried out some automated testing on the NavBar component, following test protocols of making the tests fail in the first instance and then ensuring they pass. This is an area where I feel least confident and would have like to have spent more time exploring if time was not such an issue.
+
+<img src="src/assets/readme_images/navbar_test1.png">
+<img src="src/assets/readme_images/navbar_test2.png">
+<img src="src/assets/readme_images/navbar_test3.png">
+
+## User Testing (manual)
 
 | Feature | User Action| Expected Outcome | Pass? |
 | ----- | -------- | ------- | ------- |
 | Homepage | View the site's purpose | Users should be presented with text and imagery to help explain the purposes of the site | PASS |
-| Homepage | Navigate across the site's pages | Users should be able to see a clear navigation menu and recieve feedback on clicking links | PASS |
-| Homepage | Use the site's logo for home navigation | Users should be able to click the site's logo to return to the homepage from any other location | PASS |
-| Homepage | Navigate to 'Resource Library' using call-to-action button | On clicking the call-to-action button, users should instantly be presented with the 'Resource Library' template | PASS |
-| Homepage/appointment form | Fill in an appointment form | Users should be able to fill in all fields of the appointment form. Drop down menus should present viable options and users should be able to select from these | PASS |
-| Homepage/appointment form | Submit appointment form and recieve confirmation feedback | Users should be able to click a 'Submit' button and send the form to a database, recieving a visible alert message to confirm the sending | PASS |
-| Homepage/appointment form | Attempting to book in the past | On trying to book a date in the past, users should not be able to submit the form and will instead be presented with an error alert informing them of the specific nature of the issue | PASS |
-| Homepage/appointment form | Attempting to book a duplicate appointment | Users should not be able to submit a form where there is already a saved entry with teacher/date/time values. Instead they should recieve an error alert informing them of the issue | PASS |
-| Resource Library | View all uploaded resources | All uploaded resources should be displayed in responsive cards, including key details of the resource and a 'Download' button for each | PASS |
-| Resource Library | Pagination in action | When resources go above a quantity of '9', pagination should become enabled and 'prev' and 'next' buttons will appear to support user navigation | PASS |
-| Resource Library | Downloading resources | When a user clicks on the 'Download' button, their resource is displayed as a pdf file in a seperate tab | PASS |
-| Login | Access restrictions | Users can access the login page but cannot proceed further without credentials | PASS |
 
-## Admin Testing
 
-| Feature | User Action| Expected Outcome | Pass? |
-| ----- | -------- | ------- | ------- |
-| Sign Up | Create a school administrator account | Using a private link, users have access to a sign up form requiring a 'username' and 'password' is supplied before allowing the creation of an account | PASS |
-| Sign Up | Redirected to homepage | Once submitted, the sign up form should redirect the now 'admin' to the homepage with added navigational elements present on the navbar | PASS |
-| Logout | Log out from account | On clicking the 'Logout' link, admins should be presented with a modal adding a layer of defensive programming confirming their action | PASS |
-| Logout Modal | Allows successful logout | On confirming the 'logout' action, admins will be returned to the homepage and no longer have access to restricted navigational items | PASS |
-| Appointments | View submitted appointments | On clicking 'Appointments', admins should be able to read all submitted appointment entries | PASS |
-| Appointments | Edit an appointments | On clicking 'Edit' button, admins should be redirected to an edit page where they have access to the appointment form model | PASS |
-| Appointments | Edit an appointment | Filling in the appointment form and clicking 'submit' returns the admin to the 'Appointments' page where the updated changes are visible | PASS |
-| Appointments | Deleting an appointment | On clicking 'Delete' button, admins are presented with a modal adding a layer of defensive programming confirming their action | PASS |
-| Appointments | Deleting an appointment | On confirming the 'Delete' function, admins should be redirected back to the 'Appointments' page where the deleted entry should no longer be visible | PASS |
-| Appointments | Pagination in action | When appointments go above a quantity of '9', pagination should become enabled and 'prev' and 'next' buttons will appear to support admin navigation | PASS |
-| Upload Resources | Access page | Clicking the 'Upload Resource' navigation button sends admins to the edit_resources template where an upload form is visible | PASS |
-| Upload Resources | Attaching a file | The file upload form allows admins to attach a file for uploading | PASS |
-| Upload Resources | Upload feedback | On clicking 'Upload', admins are redirected to the 'Upload Reosurce' page and recieve confirmation via an alert message | PASS |
-| Upload Resources | File upload success | All uploaded files should be visible for users on the 'Resource Library' page. The website must be linked to Cloudinary storage for this to work | PASS |
 
 ## Performance Testing
 
 ### HTML Validation
 
-<img src="src/assets/html_validation.png">
+<img src="src/assets/readme_images/html_validation.png">
 
 ### CSS
 
-<img src="src/assets/css_validation.png">
+<img src="src/assets/readme_images/css_validation.png">
 
 ### Python
 
