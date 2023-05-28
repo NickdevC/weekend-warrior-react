@@ -102,9 +102,9 @@ All user stories and tasks related to the functionality of the site can be viewe
 
 ## Agile Approach
 
-I followed the 'agile' approach to developing Weekend Warriors, using the content from Code Institute's course content to support me. Initially, I used the Github 'issues' feature to create my `Must Have` features (displayed as user stories). Once these were established, and with consideration to my project's timeline, I considered and added a number of `Could Have` features that were not essential for the **MVP**. In addition, I created a [kanban board](https://github.com/users/NickdevC/projects/5) which I used throughout the development process. The kanban board itself was split into four main sections: **To do** . In addition, whilst working through sprints, and ensuring I met the criteria for various user stories, I found it useful to create 'Tasks' to detail specifc, more significant jobs.
+I followed the 'agile' approach to developing Weekend Warriors, using the content from Code Institute's course content to support me. Initially, I used the Github 'issues' feature to create my `Must Have` features (displayed as user stories). Once these were established, and with consideration to my project's timeline, I considered and added a number of `Could Have` features that were not essential for the **MVP**. In addition, I created a [kanban board](https://github.com/users/NickdevC/projects/5) which I used throughout the development process. Whilst working through sprints, and ensuring I met the criteria for various user stories, I found it useful to create 'Tasks' to detail specifc, more significant jobs.
 
-Whilst the agile approach itself is more commonly based in team environments, with multiple people working on a project, this was hard to achieve as my project was my sole responsibility. To attempt to combat this 'coding in isolation', I reached out to a number of other people within the community to collaborate by: reviewing code, discussing bugs, problem solving user features and giving regular progress updates. The details of these collaborators can be found in the [Acknowledgements](#acknowledgements) section at the bottom of this readme.
+Whilst the agile approach itself is more commonly based in team environments, with multiple people working on a project, this was hard to achieve as my project was **my** sole responsibility. To attempt to combat this 'coding in isolation', I reached out to a number of other people within the community to collaborate by: reviewing code, discussing bugs, problem solving user features and giving regular progress updates. The details of these collaborators can be found in the [Acknowledgements](#acknowledgements) section at the bottom of this readme.
 
 [Return to contents](#contents)
 
@@ -112,15 +112,8 @@ Whilst the agile approach itself is more commonly based in team environments, wi
 
 ### Data Structure (models)
 
-In planning my data structure, I used [Lucidchart](https://www.lucidchart.com/pages/) to help visualise the models and understand the various field types necessary for each data entry. My project consists of two main models (`Appointment` and `Resource`), with each requiring some additional `CHOICE` fields. In addition to this, the `Resource` model required a specific `CloudinaryField` to access my remote-hosted media for the site, as well as providing cloud storage for any files uploaded through the front-end.
+All of the data structuring was completed when creating my backend API. The repository and accompanying README can be found here: [ww-api](https://www.github.com/NickdevC/ww-api) 
 
-<img src="static/images/models.png" width="auto">
-
-### Django App Structure
-
-The Learning Hub app is seperated into two apps, each serving a different purpose: 'booking_app' and 'resources_app'. These apps are similar in structure but it was necessary to seperate them so that their individual functions could be isolated and accessed more readily for future maintence or duplication in other projects.
-
-<img src="static/images/file_structure.png" width="auto">
 
 [Return to contents](#contents)
 
@@ -186,141 +179,133 @@ The Learning Hub app is seperated into two apps, each serving a different purpos
 <img src="src/assets/WW-no-results.png">
 
 ### Features 
+---
 
-#### Navbar (`user`)
+#### Navbar
 
-* The navbar includes simple branding, in the form of the website logo (situated at the upper-left-corner). It is fully responsive and reduces to a 'burger menu' when screen size is reduced. In order to maintain a simple level of playfulness (often synonymous with schools), I have added minor user feedback in the form of a small 'drop' effect on each navbar item. In addition to this, I have used [Django Active-Link](https://django-active-link.readthedocs.io/en/latest/readme.html) to ensure that the navbar items are highlighted when 'active'.
+* The navbar includes simple branding, in the form of the website logo (situated at the upper-left-corner). It is fully responsive and reduces to a 'burger menu' when screen size is reduced. When a user first visits the app, they are able to see: Home, About, Login, and Sign Up links.
 
-<img src="static/images/screenshots/user-nav.png" width="auto">
+<img src="src/assets/readme_images/navbar.png">
 
-#### Navbar (`admin`)
+#### About
 
-* The navbar for `admins` is much the same as `users`, with the addition of other authorised pages available to navigate to.
+* The 'About' page is accessible by all users (regardless of whether they are registered), and provides information about the purpose and functionality of the site. It makes the user journey clear and hopefully encourages users to sign up!
 
-<img src="static/images/screenshots/admin-nav.png" width="auto">
+<img src="src/assets/readme_images/about.png">
 
-#### Footer (`user` and `admin`)
+#### Sign Up 
 
-* The footer is a simple in it's design, following the same colour scheme as the rest of the site. I purposely did not add much styling to this as I wanted the main focus of the site to remain the **booking of appointments** and the **downloading of resources** for `users`. It includes simple social links to the developer, but could easily incorporate personalised social links for each individual school if the product became live.
+* The 'Sign Up' page is simple in design and is accompanied by an image that invokes enthusiasm and adventure. Users are actively challenged with authrorization checks to ensure there is no repeated data and that the strength of credentials are good.
 
-<img src="static/images/screenshots/footer.png" width="auto">
+<img src="src/assets/readme_images/sign_up.png">
 
-#### Homepage (`user` and `admin`)
+#### Log In
 
-* The hero banner of the homepage was designed to be minimal, so as to not detract from the clear purpose and functionality of the site, whilst also feeling uncomplicated and non-threatening to a new user. The simple cartoon imagery provides a welcome and warm feel, whilst the small amount of text helps explain the purpose of the site. There is also the addition of a **call to action** button, which encourages users to access the **resource library**, reducing the amount of navigation required from the user to reach their goals.
+* Users are automatically redirected here after 'signing up'. It is simple and responsive.
 
-<img src="static/images/screenshots/homepage-hero.png" width="auto">
+<img src="src/assets/readme_images/login.png">
 
-* The appointment form can be filled in by any visitor to the site, and you do not require a login to access it (whilst this may be something to change in the future for security purposes and to filter out unecessary communication, for now it fulfills the minimal requirements for the site). It allows the user to input all necessary fields to book an appointment with their child's teacher. A dropdown menu provides a list of `choices` for both the *teacher* and *time* options. In addition, there is a `date field` which allows the suer to pick a date for the appointment. I have ensured that the form cannot accept duplicate teacher/time/date slots, and will also prevent the user from booking a date in the past. See [bugs section](#bugs) for more details.
+#### Home Feed
 
-* This user interaction also forms the first part of the `CRUD` design, that being the `CREATE` stage.
+* All users will be able to see the home feed - an infinitely scrolling wall of adventures! A similar experience is seen in the 'favourites' and 'feed' navbar links, however these are tailored to only show `favourited` and `followed` adventures respectively.
 
-<img src="static/images/screenshots/appointment-form.png" width="auto">
+<img src="src/assets/readme_images/feed.png">
 
-#### Appointment Form Alerts (`user` and `admin`)
+#### Adventures (posts)
 
-* On successfully filling in the 'appointments form', the following alert message appears in order to give the user instant feedback and reassure them that the form has been recieved by the school. After 3 seconds, the alert disappears and the user is back on the homepage.
+* The adventure posts themselves are big and bold. With a large space for a user-uploaded image, they also allow for users to select key field parameters and have them display to other users. A key goal with Weekend Warriors is that these adventure posts are helpful to others and give other users as much information as possible in asimple and accessible manner. It is also here where logged in users can click on the 'heart' icon to favourite an adventure.
 
-<img src="static/images/screenshots/appointment-success.png" width="auto">
+<img src="src/assets/readme_images/adventure_post.png">
 
-* If the form is filled in using a date from the past, the following error alert message appears at the top of the page. This gives the user a clear indication of what fields to check before rectifying the issue. **The form is not submitted until the issue is resolved.**
+#### Most Followed Users
 
-<img src="static/images/screenshots/past-date-alert.png" width="auto">
+* This seperate container encourages users to click on other profiles and begin increasing their online social circle by following them. The 'follow/unfollow' function is seamless and changed at the click of a button.
 
-* In addition, the `date field` displays the following error to make it even clearer to the user.
+<img src="src/assets/readme_images/most_followed.png">
 
-<img src="static/images/screenshots/date-error.png" width="auto">
+#### Profiles
 
-* If the user enters a combination of teacher/date/time where another entry already exists within the database, the following alert appears at the top of the page. This prompts the user to change their selection before continuing. **The form is not submitted until the issue is resolved.**
+* The profiles page provides a more detailed view of an individual user. Not only does it allow for other users to follow the profile, but it also display some key information about the user, helping others make an informed choice when deciding who to follow. The profile can also be edited by the owner from here (including changing their profile image).
 
-<img src="static/images/screenshots/duplicate-error.png" width="auto">
+<img src="src/assets/readme_images/profile_display.png">
 
-#### Resource Library (`user`)
+#### Edit Username/Password
 
-* On entering the 'Resource Library' page, `users` are met with another hero banner, designed to present a welcoming feel and promote accessibility. The image is in-line with the homepage in terms of branding, and the accompanying text helps to explain the purpose and role of the page itself.
+* Within the profile page, owners can easily edit their username and/or password. Once complete, they are redirected back.
 
-<img src="static/images/screenshots/resources-hero.png" width="auto">
+<img src="src/assets/readme_images/edit_username.png">
+<img src="src/assets/readme_images/edit_password.png">
 
-* The 'Resource Library' page displays all uploaded resources for `users` to access and download (opening in a seperate tab). These resources appear in small, simple cards, displaying only the most vital information. Pagination is in place to ensure that the screen does not become overcrowded with further resources being added. 
+#### Create Adventure (post)
 
-<img src="static/images/screenshots/resource-cards.png" width="auto">
+* The all important 'adventure post' is created here. Users are encouraged to fill out a number of key fields to provide a great deal of information to other users with minimal effort ont heir part. In addition, they are given the chance to be more free and creative by having the option of filling out a detailed description textarea.
 
-#### Login (`user` and `admin`)
+<img src="src/assets/readme_images/add_adventure.png">
 
-* This page is open to all users, however only `admins` have the ability to supply credentials here and open up other parts of the site. There is a text prompt which instructs users to contact their school administrator for login details (please see next 'Sign Up' section).
+#### Comments
 
-<img src="static/images/screenshots/sign-in-form.png" width="auto">
+* All logged in users are able to click on an adventure and add their own comment, encouraging users to enter in a shared dialogue with each other.
 
-#### Sign Up (`admin`)
+<img src="src/assets/readme_images/display_comment.png">
 
-**Important! This page is a hidden template, and would be issued by the main school administrator (`Super User`) for other administration staff (`admins`) to access.** [Please find the page here](https://nickdevc-home-learning-hub.herokuapp.com/accounts/signup)
+#### Searchbar
 
-* This sign up page displays a clear, uncomplicated sign up form, supported by [Django's AllAuth applications](https://django-allauth.readthedocs.io/en/latest/). It allows school administration staff to sign up and create secure accounts to access restricted pages within the site.
+* This feature allows users to type in any combination of letters to find key words within the adventure posts. It will retrieve adventures that have matching words in their: titles, username or content.
 
-<img src="static/images/screenshots/sign-up-form.png" width="auto">
+<img src="src/assets/readme_images/search.png">
 
-#### Appointments (`admin`)
+#### Spinner
 
-* On successfully signing in, `admins` have access to the 'Appointments' page, where they can manage the appointments made by `users`. Here, the details of each individual appointment are clearly displayed in small cards. Again, with functionality in mind, the level of styling is minimal here as any more refinement may detract from the sole purpose of the app, and the goals of the `admins`. Each appointment also contains buttons for 'Edit' and 'Delete'. Pagination is in place to ensure that the screen does not become overcrowded with further appointments being added.
+* This asset is present throughout the app, and will always render when components are loading to give the user clear feedback and reassure them that the app is working. 
 
-* This user interaction also forms the second part of the `CRUD` design, that being the `READ` stage.
+<img src="src/assets/readme_images/spinner.png">
 
-<img src="static/images/screenshots/appointment-cards.png" width="auto">
+#### Dropdown Menu
 
-* On selecting 'Edit', `admins` are taken to the 'edit_appointment' template and can update any of the details for the appointment before saving these changes and being returned to the 'Appointments' page.
+* This asset is featured in the profile, comments and adventures, to allow users to gain a greater level of access to their own content. Provide them with the ability to edit and, the case of the comments and adventures, delete their content.
 
-* This user interaction also forms the third part of the `CRUD` design, that being the `UPDATE` stage.
+<img src="src/assets/readme_images/moreDropdown_menu.png">
 
-<img src="static/images/screenshots/edit-appointment-form.png" width="auto">
+#### Potential Future Features
 
-* On selecting 'Delete', `admins` are presented with a modal, used as an element of defensive programming, in order to confirm the action before permanently deleting the appointment from both the front-end view and the database. On confirming the deletion, they are returned back to the 'Appointments' page.
-
-* This user interaction also forms the fourth part of the `CRUD` design, that being the `DELETE` stage.
-
-<img src="static/images/screenshots/delete-modal.png" width="auto">
-
-#### Upload Resources (`admin`)
-
-* The 'Upload Resources' page provides `admins` with a form which allows them to upload resources for `users` to use at home to support their child's learning. Here you can specify the name of the resource, the subject and with the `CloudinaryField`, all uploaded resources are stored in the [Cloudinary database](https://cloudinary.com/), and then rendered in the 'Resource Library' page for all `users` to access. 
-
-<img src="static/images/screenshots/upload-resource-form.png" width="auto">
+* The ability for users to comment on existing comments, creating mini threads within an adventure post
+* The ability for users to comment using images of their own
 
 [Return to contents](#contents)
 
 # Technologies Used 
 
 ## Languages
-* [HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) - The markup language used to create the structure of the site.
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to style elements of the site.
-* [JavaScript](https://www.javascript.com/) - Used to add interactivity to elements of the site.
-* [Python](https://www.python.org/) - Primary language used to develop the back-end portions of the site.
+* HTML
+* CSS
+* JSX
+* Javascript
 
 ## Frameworks/libraries
-* [Django](https://www.djangoproject.com/) - Python web framework providing pre-built syntax structures and providing essential 'app' file structures.
-  - [Django AllAuth](https://django-allauth.readthedocs.io/en/latest/) - Integrated set of Django applications addressing authentication, registration, and account management.
-  - [Django Summernote](https://github.com/summernote/django-summernote) - A simple WYSIWYG editor for use with Django.
-  - [Django CrispyForms](https://django-crispy-forms.readthedocs.io/en/latest/) - Gives added control and choices with regards to the rendering behavior of Django forms.
-  - [Django Active-Link](https://django-active-link.readthedocs.io/en/latest/readme.html) - A simple way to highlight active links in a Django app.
-* [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - CSS web framework providing in-built classes to support design and responsiveness.
+* Django Rest Framework - back end API
+* React.JS - All components used to create and render the front-end
+* React Bootstrap - Provided additional styling options
+* Gitpod - CLI workspace
+* Github - Hosting platform for repository
+* Heroku - Used to host and deploy the live app
 
 ## Databases
-* [ElephantSQL](https://www.elephantsql.com/) - Database used to store all models and user-generated data.
-* [Cloudinary](https://cloudinary.com/) - Cloud database for storing images and uploaded files from the front-end of my app.
+* ElephantSQL - Database used to store all models and user-generated data.
+* Cloudinary - Cloud database for storing images and uploaded files from the front-end of my app.
 
 ## Other Tools
-* [Heroku](https://www.heroku.com/) - A cloud platform used for hosting the app.
-* [Github](https://github.com/github) - Used to host my app's source code. Also provided the tools for creating *issues* and a *kanban board* for my agile approach to development.
-* [Git](https://git-scm.com/) - Git is an open source distributed version control system used to manage all code.
-* [Pip3](https://pypi.org/project/pip/) - The package installer for Python, used to install packages from the Python Package Index and other indexes.
-* [Gunicorn](https://gunicorn.org/) - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX (translates HTTP requests for Python to understand).
-* [Pyscopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for Python.
-* [VScode](https://code.visualstudio.com/) - A code editor redefined and optimized for building and debugging modern web and cloud applications. 
-* [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - A set of web developer tools built directly into the Google Chrome browser. Used to help debug my code during development.
-* [Google Fonts](https://fonts.google.com/) - A font catalogue, providing a variety of free custom fonts.
-* [Font Awesome](https://fontawesome.com/) - An online icon library, used to provide small icons for social links and navigation functions.
-* [Coolors](https://coolors.co/) - Used to research colours and create a palette for the project.
-* [Balsamiq](https://balsamiq.com/wireframes/) - Used to create wireframes of the site during planning stages.
-* [Lucidchart](https://www.lucidchart.com/pages/) - Used to create and display model structures.
+* Pip3 - The package installer for Python, used to install packages from the Python Package Index and other indexes.
+* Gunicorn - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX (translates HTTP requests for Python to understand).
+* Pyscopg2 - PostgreSQL database adapter for Python.
+* VScode - A code editor redefined and optimized for building and debugging modern web and cloud applications. 
+* Chrome Dev Tools - A set of web developer tools built directly into the Google Chrome browser. Used to help debug my code during development.
+* Google Fonts - A font catalogue, providing a variety of free custom fonts.
+* Font Awesome - An online icon library, used to provide small icons for social links and navigation functions.
+* Coolors - Used to research colours and create a palette for the project.
+* Balsamiq - Used to create wireframes of the site during planning stages.
+* Favicon - Used to create favicon for app.
+* AmIResponsive - Used to check responsiveness on multiple devices.
+* DrawSQL - Used to create and display model structures.
 
 [Return to contents](#contents)
 
@@ -364,155 +349,116 @@ The Learning Hub app is seperated into two apps, each serving a different purpos
 
 ## Performance Testing
 
-### Lighthouse
-
-<img src="static/images/lighthouse-scores.png" width="auto">
-
 ### HTML Validation
 
-* HTML code was run through a validator with one reoccuring error (see image). This error did not seem to affect the overall performance of the site, and was a requirement for one of the installed libraries, therfor I deemed it necessary to ignore the error.
-
-<img src="static/images/html-error.png" width="auto">
-
-* In addition, my 'appointments.html' template had an error regarding the repetition of an ID linked to my delete modal. I have tried to find a solution to correct this, and have tried suggestions from the Slack community but none have proven to be successful. The page functions and passes all other tests, and I have limited time to work on this. If I had more time, I would look to resolving the issue.
-
-<img src="static/images/modal-error.png" width="auto">
+<img src="src/assets/html_validation.png">
 
 ### CSS
 
-<img src="static/images/css-validation.png" width="auto">
+<img src="src/assets/css_validation.png">
 
 ### Python
 
 **Note - PEP8 no longer offers their validation services**
 
-With 'pycodestyle' installed in my workspace, I was able to see and correct errors within my code. I am satisfied that those errors have now been resolved.
+With 'pycodestyle' installed in my workspace, I was able to see and correct errors within my code (mainly pertaining to lengthy lines). I am satisfied that those errors have now been resolved.
+
+### Responsive Testing
+
+The website has been tested using the following browsers:
+
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
+- Safari
+
+The website has been tested on the following devices: 
+
+- MacBook Air
+- Apple Ipad
+- Huwawei p20
+
+During testing it was found that some users were unable to log in if using Firefox or Safari. Turning off “Prevent Cross-Site Tracking” in the browser settings, seems to fix this issue.
 
 ## Bugs
 
 During the development process and through consistent user testing, I was able to identify and find solutions to a number of bugs. Engaging with fellow Code Institue students (see 'Credits') I was able to recieve regular user feedback and work on solutions in a timely manner.
 
-| Link to Bug | Description | Solution |
+| Location/feature | Description | Solution |
 | ----- | -------- | ------- |
-| [#1](https://github.com/NickdevC/Home-Learning-Hub/issues/21#issue-1574485639) | Choices within a CharField were rendering as numerical values rather than strings | Used the 'get_FOO_display' method [Stack Overflow](https://stackoverflow.com/questions/49091870/django-template-force-choices-on-field-and-print-display-value-with-get-foo-dis) |
-| [#2](https://github.com/NickdevC/Home-Learning-Hub/issues/22#issue-1574493640) | TextField displays html tags along with the content itself to the user | Add the 'safe' tag to my TextField variables [Django Project](https://docs.djangoproject.com/en/1.8/ref/templates/builtins/#safe) |
-| [#3](https://github.com/NickdevC/Home-Learning-Hub/issues/25#issue-1587902889) | The delete modal would not display when users clicked the 'delete' button | Found small syntax differences between Bootstrap 4 and 5. I needed to update to the V5 syntax 'data-**bs**-dismiss=' and link this in my urls.py file |
-| [#4](https://github.com/NickdevC/Home-Learning-Hub/issues/26#issue-1589889951) | Users were able to book duplicate appointments with the same teacher/date/time data | I added the 'unique_together' attrib in the model [Stack Overflow](https://stackoverflow.com/questions/25170071/how-do-i-use-unique-together-in-django) |
-| [#5](https://github.com/NickdevC/Home-Learning-Hub/issues/33#issue-1599959933) | Users were able to book an appointment using a date from the past | I created and added a custom validator to the Appointment model [Django Project](https://docs.djangoproject.com/en/2.2/ref/validators/) |
-| [#5](https://github.com/NickdevC/Home-Learning-Hub/issues/30#issue-1599717586) | When users navigated through different pages, the navbar was unresponsive and did not display any 'active' status | I installed Django Active-Links and added the additional code to the nav-links [Django-Active-Links](https://django-active-link.readthedocs.io/en/latest/readme.html) |
-| [#6](https://github.com/NickdevC/Home-Learning-Hub/issues/31#issue-1599718423) | When uploading a file through the admin panel, the file is visible in Cloudinary storage but does not appear to the user on the front-end | I needed to add '.url' to the href in the 'Resource Library' template |
-| [#7](https://github.com/NickdevC/Home-Learning-Hub/issues/32#issue-1599959327) | When uploading a file from the front-end, the files in question would not appear in Cloudinary storage | I needed to pass ‘request.FILES’ to the ResourceForm [Django Project](https://docs.djangoproject.com/en/4.1/topics/http/file-uploads/) |
+| Navlink (i elements) | On 'hover', these elements remained blue from the CI boilerplate css. I could not overide them. | Explored inheritance, and altered this to target the specific element. |
+| profile_image (avatar) | Image was not displaying correctly (showing broken link). | User serializer path was incorrect, it was `profile.image.url` and needed to be `profile.profile_image.url` |
+| Creating an adventure post | Trying to include a '<' symbol within text fields. It would not allow me to do this and it would throw the rest of the code. | Researching on w3schools, I realised I needed to use HTML entities, specifically `&lt;` |
+| Submitting an adventure post | I kept receiving a `CORS error` and the form would not submit. | I went to the try/catch block in the function and realised the axios key had the wrong url path, it needed to be `/adventures/` rather than `/posts/` |
+| Post.js | Some font awesome logos refused to render and were not displaying properly when inspecting in dev tools. | Checked my version of FA and realised I needed to use an older version. Imported those versions, and all icons rendered. |
+| PostPage.js | The adventure posts were not displaying the 1st option in the option fields from the adventures model. It kept returning as 'none'. | I added an additional 1st option to the return statement, as a placeholder of '-'. That way if the user decided to leave the field blank, '-' would display. |
+| ProfilePage.js | The page was not displaying any of the counts for: followers, following or adventure posts. | On investigating, and with the support of the Slack community, I was able to see that I had made an error back in my API. The views.py for my profiles had a duplicate `queryset` statement that was cancelling out the request. |
 
 [Return to contents](#contents)
 
 ## Future Features
 
 If I were to have more time on the project I would consider implementing the following features:
-* Different user models, allowing for different privileges across the site. For example, user could be split into: Admin, Teacher, Parent, and Pupil.
-* Automated email confirmation - this is something that I put as a `Could Have` user story on my [kanban board](https://github.com/users/NickdevC/projects/4) and would essentially require users to supply an email address when booking an appointment. When the appointment was submitted, they would receive an email confirmation and a link to apply the appointment to their calendar.
-* Integrate an app for facilitating a video/audio appointment (I would need to look into whether there are APIs already available to facilitate this)
+* Added a 'Contact form' for users to contact the website administrators.
+* The ability for users to comment on others' comments, creating threads of conversations.
+* A rating system in the adventures model, to allow users to cast their star rating on an adventure post.
 
 
 # Deployment
 
-This app was deployed through Heroku. The live link is [here](https://nickdevc-home-learning-hub.herokuapp.com/)
+## Forking the GitHub Repository
 
-- Fork/clone this repository
-- Create a new app on Heroku
-- Link the app on Heroku to the repository
-- Click on the 'Deploy' button
+1. Go to [the project repository](https://github.com/NickdevC/weekend-warrior-react)
+2. In the right most top menu, click the "Fork" button.
+3. There will now be a copy of the repository in your own GitHub account.
+
+## Running the project locally
+
+1. Go to [the project repository](https://github.com/NickdevC/weekend-warrior-react)
+2. Click on the "Code" button.
+3. Choose one of the three options (HTTPS, SSH or GitHub CLI) and then click copy.
+4. Open the terminal in you IDE program.
+5. Type `git clone` and paste the URL that was copied in step 3.
+6. Press Enter and the local clone will be created.
+
+### Alternatively by using Gitpod:
+
+1. Go to [the project repository](https://github.com/NickdevC/weekend-warrior-react)
+2. Click the green button that says "Gitpod" and the project will now open up in Gitpod.
+
+## Deploying with Heroku
+
+1. Go to [Heroku.com](https://dashboard.heroku.com/apps) and log in; if you do not already have an account then you will need to create one.
+2. Click the `New` dropdown and select `Create New App`.
+3. Enter a name for your new project, all Heroku apps need to have a unique name, you will be prompted if you need to change it.
+4. Select the region you are working in.
+
+### Heroku Deployment
+
+In the Deploy tab:
+
+1. Connect your Heroku account to your Github Repository following these steps:
+   - Click on the `Deploy` tab and choose `Github-Connect to Github`.
+   - Enter the GitHub repository name and click on `Search`.
+   - Choose the correct repository for your application and click on `Connect`.
+2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
+3. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should now see the `View` button, click this to open your application.
 
 # Credits
 
 ## Websites
 
-* [Pixabay](https://pixabay.com/users/elf-moondance-19728901/) - images by artist Elf-Moondance
-* [Getbootstrap](https://getbootstrap.com/docs/5.0/examples/heroes/) - Examples of hero images/banners in Bootstrap5 provided structure for my hero banners
-* [Django Active-Link](https://django-active-link.readthedocs.io/en/latest/readme.html) - Provided me with documentation on how to implement 'active-link' into my project
-* [Stack Overflow](https://stackoverflow.com/questions/49091870/django-template-force-choices-on-field-and-print-display-value-with-get-foo-dis) - Supported me in understanding the 'get_FOO_display' syntax
-* [Stack Overflow](https://stackoverflow.com/questions/25170071/how-do-i-use-unique-together-in-django ) - Supported me in understandin the 'unique_together' attribute
-* [Django Project](https://docs.djangoproject.com/en/4.1/topics/http/file-uploads/) - I learnt how to upload files using the documentation provided by Django Project
-* [Django Project](https://docs.djangoproject.com/en/2.2/ref/validators/) - I learnt how validators work in Django using the documentation provided by Django Project
+* [Pixabay](https://pixabay.com/) - Stock images were used for the app design and for profile images.
+* [React Bootstrap Docs](https://react-bootstrap-v4.netlify.app/) - The official docs for React Bootstrap components.
+* [Stack Overflow](https://stackoverflow.com/) - Supported me in understanding: try/catch blocks, Routes in React, and adding custom fields to models in Django Rest.
 
 ## Acknowledgements
 
-* The Code Institute walkthrough projects 'Hello Django' and 'I Think Therfor I Blog' for providing some structure and direction for my personal project.
-* A special mention to my mentor Martina Terlevic who has accomodated me along the way, supporting with queries 'on the fly' and providing invaluable guidance during project milestone meetings. 
-* I have enormous gratitude for the patience, and experience offered by tutor support members: Oisin, Rebecca and Martin. All three helped me work through problems systematically and those processes themselves taught me a great deal with regards to debugging and **reading** code.
-* I also want to thank [Chris.F](https://github.com/Chrisfaherty) and [Chris.B](https://github.com/Christoph33one) (fellow Code Institute students). By joining together and engaging in remote study sessions your conversation and input kept me on track and motivated to push myself with regards to the project. By regularly talking through our code, I'd like to think we replicated as much of the 'agile' process as we could!
+* The Code Institute walkthrough project 'Moments' for providing some structure and direction for my personal project.
+* My mentor Martina Terlevic who has accomodated me along the way, supporting with queries 'on the fly' and providing invaluable guidance during project milestone meetings. 
+* Code Institute tutors for helping to guide me through some difficult debugging (this process was often what caused the most retained learning for me).
+* I also want to thank [Chris.F](https://github.com/Chrisfaherty) and [Chris.B](https://github.com/Christoph33one) (fellow Code Institute students). By joining together and engaging in remote study sessions your conversation and input kept me on track and motivated to push myself with regards to the project. Constructive venting and questioning, both contributed to much needed progress!
 
-[Deployed Live Site](https://nickdevc-home-learning-hub.herokuapp.com/)
+[Deployed Live Site](https://weekend-warrior-nickdevc.herokuapp.com/)
 
 [Return to contents](#contents)
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
