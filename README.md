@@ -102,9 +102,9 @@ All user stories and tasks related to the functionality of the site can be viewe
 
 ## Agile Approach
 
-I followed the 'agile' approach to developing Weekend Warriors, using the content from Code Institute's course content to support me. Initially, I used the Github 'issues' feature to create my `Must Have` features (displayed as user stories). Once these were established, and with consideration to my project's timeline, I considered and added a number of `Could Have` features that were not essential for the **MVP**. In addition, I created a [kanban board](https://github.com/users/NickdevC/projects/5) which I used throughout the development process. The kanban board itself was split into four main sections: **To do** . In addition, whilst working through sprints, and ensuring I met the criteria for various user stories, I found it useful to create 'Tasks' to detail specifc, more significant jobs.
+I followed the 'agile' approach to developing Weekend Warriors, using the content from Code Institute's course content to support me. Initially, I used the Github 'issues' feature to create my `Must Have` features (displayed as user stories). Once these were established, and with consideration to my project's timeline, I considered and added a number of `Could Have` features that were not essential for the **MVP**. In addition, I created a [kanban board](https://github.com/users/NickdevC/projects/5) which I used throughout the development process. Whilst working through sprints, and ensuring I met the criteria for various user stories, I found it useful to create 'Tasks' to detail specifc, more significant jobs.
 
-Whilst the agile approach itself is more commonly based in team environments, with multiple people working on a project, this was hard to achieve as my project was my sole responsibility. To attempt to combat this 'coding in isolation', I reached out to a number of other people within the community to collaborate by: reviewing code, discussing bugs, problem solving user features and giving regular progress updates. The details of these collaborators can be found in the [Acknowledgements](#acknowledgements) section at the bottom of this readme.
+Whilst the agile approach itself is more commonly based in team environments, with multiple people working on a project, this was hard to achieve as my project was **my** sole responsibility. To attempt to combat this 'coding in isolation', I reached out to a number of other people within the community to collaborate by: reviewing code, discussing bugs, problem solving user features and giving regular progress updates. The details of these collaborators can be found in the [Acknowledgements](#acknowledgements) section at the bottom of this readme.
 
 [Return to contents](#contents)
 
@@ -112,15 +112,8 @@ Whilst the agile approach itself is more commonly based in team environments, wi
 
 ### Data Structure (models)
 
-In planning my data structure, I used [Lucidchart](https://www.lucidchart.com/pages/) to help visualise the models and understand the various field types necessary for each data entry. My project consists of two main models (`Appointment` and `Resource`), with each requiring some additional `CHOICE` fields. In addition to this, the `Resource` model required a specific `CloudinaryField` to access my remote-hosted media for the site, as well as providing cloud storage for any files uploaded through the front-end.
+All of the data structuring was completed when creating my backend API. The repository and accompanying README can be found here: [ww-api](https://www.github.com/NickdevC/ww-api) 
 
-<img src="static/images/models.png" width="auto">
-
-### Django App Structure
-
-The Learning Hub app is seperated into two apps, each serving a different purpose: 'booking_app' and 'resources_app'. These apps are similar in structure but it was necessary to seperate them so that their individual functions could be isolated and accessed more readily for future maintence or duplication in other projects.
-
-<img src="static/images/file_structure.png" width="auto">
 
 [Return to contents](#contents)
 
@@ -186,104 +179,92 @@ The Learning Hub app is seperated into two apps, each serving a different purpos
 <img src="src/assets/WW-no-results.png">
 
 ### Features 
+---
 
-#### Navbar (`user`)
+#### Navbar
 
-* The navbar includes simple branding, in the form of the website logo (situated at the upper-left-corner). It is fully responsive and reduces to a 'burger menu' when screen size is reduced. In order to maintain a simple level of playfulness (often synonymous with schools), I have added minor user feedback in the form of a small 'drop' effect on each navbar item. In addition to this, I have used [Django Active-Link](https://django-active-link.readthedocs.io/en/latest/readme.html) to ensure that the navbar items are highlighted when 'active'.
+* The navbar includes simple branding, in the form of the website logo (situated at the upper-left-corner). It is fully responsive and reduces to a 'burger menu' when screen size is reduced. When a user first visits the app, they are able to see: Home, About, Login, and Sign Up links.
 
-<img src="static/images/screenshots/user-nav.png" width="auto">
+<img src="src/assets/readme_images/navbar.png">
 
-#### Navbar (`admin`)
+#### About
 
-* The navbar for `admins` is much the same as `users`, with the addition of other authorised pages available to navigate to.
+* The 'About' page is accessible by all users (regardless of whether they are registered), and provides information about the purpose and functionality of the site. It makes the user journey clear and hopefully encourages users to sign up!
 
-<img src="static/images/screenshots/admin-nav.png" width="auto">
+<img src="src/assets/readme_images/about.png">
 
-#### Footer (`user` and `admin`)
+#### Sign Up 
 
-* The footer is a simple in it's design, following the same colour scheme as the rest of the site. I purposely did not add much styling to this as I wanted the main focus of the site to remain the **booking of appointments** and the **downloading of resources** for `users`. It includes simple social links to the developer, but could easily incorporate personalised social links for each individual school if the product became live.
+* The 'Sign Up' page is simple in design and is accompanied by an image that invokes enthusiasm and adventure. Users are actively challenged with authrorization checks to ensure there is no repeated data and that the strength of credentials are good.
 
-<img src="static/images/screenshots/footer.png" width="auto">
+<img src="src/assets/readme_images/sign_up.png">
 
-#### Homepage (`user` and `admin`)
+#### Log In
 
-* The hero banner of the homepage was designed to be minimal, so as to not detract from the clear purpose and functionality of the site, whilst also feeling uncomplicated and non-threatening to a new user. The simple cartoon imagery provides a welcome and warm feel, whilst the small amount of text helps explain the purpose of the site. There is also the addition of a **call to action** button, which encourages users to access the **resource library**, reducing the amount of navigation required from the user to reach their goals.
+* Users are automatically redirected here after 'signing up'. It is simple and responsive.
 
-<img src="static/images/screenshots/homepage-hero.png" width="auto">
+<img src="src/assets/readme_images/login.png">
 
-* The appointment form can be filled in by any visitor to the site, and you do not require a login to access it (whilst this may be something to change in the future for security purposes and to filter out unecessary communication, for now it fulfills the minimal requirements for the site). It allows the user to input all necessary fields to book an appointment with their child's teacher. A dropdown menu provides a list of `choices` for both the *teacher* and *time* options. In addition, there is a `date field` which allows the suer to pick a date for the appointment. I have ensured that the form cannot accept duplicate teacher/time/date slots, and will also prevent the user from booking a date in the past. See [bugs section](#bugs) for more details.
+#### Home Feed
 
-* This user interaction also forms the first part of the `CRUD` design, that being the `CREATE` stage.
+* All users will be able to see the home feed - an infinitely scrolling wall of adventures! A similar experience is seen in the 'favourites' and 'feed' navbar links, however these are tailored to only show `favourited` and `followed` adventures respectively.
 
-<img src="static/images/screenshots/appointment-form.png" width="auto">
+<img src="src/assets/readme_images/feed.png">
 
-#### Appointment Form Alerts (`user` and `admin`)
+#### Adventures (posts)
 
-* On successfully filling in the 'appointments form', the following alert message appears in order to give the user instant feedback and reassure them that the form has been recieved by the school. After 3 seconds, the alert disappears and the user is back on the homepage.
+* The adventure posts themselves are big and bold. With a large space for a user-uploaded image, they also allow for users to select key field parameters and have them display to other users. A key goal with Weekend Warriors is that these adventure posts are helpful to others and give other users as much information as possible in asimple and accessible manner. It is also here where logged in users can click on the 'heart' icon to favourite an adventure.
 
-<img src="static/images/screenshots/appointment-success.png" width="auto">
+<img src="src/assets/readme_images/adventure_post.png">
 
-* If the form is filled in using a date from the past, the following error alert message appears at the top of the page. This gives the user a clear indication of what fields to check before rectifying the issue. **The form is not submitted until the issue is resolved.**
+#### Most Followed Users
 
-<img src="static/images/screenshots/past-date-alert.png" width="auto">
+* This seperate container encourages users to click on other profiles and begin increasing their online social circle by following them. The 'follow/unfollow' function is seamless and changed at the click of a button.
 
-* In addition, the `date field` displays the following error to make it even clearer to the user.
+<img src="src/assets/readme_images/most_followed.png">
 
-<img src="static/images/screenshots/date-error.png" width="auto">
+#### Profiles
 
-* If the user enters a combination of teacher/date/time where another entry already exists within the database, the following alert appears at the top of the page. This prompts the user to change their selection before continuing. **The form is not submitted until the issue is resolved.**
+* The profiles page provides a more detailed view of an individual user. Not only does it allow for other users to follow the profile, but it also display some key information about the user, helping others make an informed choice when deciding who to follow. The profile can also be edited by the owner from here (including changing their profile image).
 
-<img src="static/images/screenshots/duplicate-error.png" width="auto">
+<img src="src/assets/readme_images/profile_display.png">
 
-#### Resource Library (`user`)
+#### Edit Username/Password
 
-* On entering the 'Resource Library' page, `users` are met with another hero banner, designed to present a welcoming feel and promote accessibility. The image is in-line with the homepage in terms of branding, and the accompanying text helps to explain the purpose and role of the page itself.
+* Within the profile page, owners can easily edit their username and/or password. Once complete, they are redirected back.
 
-<img src="static/images/screenshots/resources-hero.png" width="auto">
+<img src="src/assets/readme_images/edit_username.png">
+<img src="src/assets/readme_images/edit_password.png">
 
-* The 'Resource Library' page displays all uploaded resources for `users` to access and download (opening in a seperate tab). These resources appear in small, simple cards, displaying only the most vital information. Pagination is in place to ensure that the screen does not become overcrowded with further resources being added. 
+#### Create Adventure (post)
 
-<img src="static/images/screenshots/resource-cards.png" width="auto">
+* The all important 'adventure post' is created here. Users are encouraged to fill out a number of key fields to provide a great deal of information to other users with minimal effort ont heir part. In addition, they are given the chance to be more free and creative by having the option of filling out a detailed description textarea.
 
-#### Login (`user` and `admin`)
+<img src="src/assets/readme_images/add_adventure.png">
 
-* This page is open to all users, however only `admins` have the ability to supply credentials here and open up other parts of the site. There is a text prompt which instructs users to contact their school administrator for login details (please see next 'Sign Up' section).
+#### Comments
 
-<img src="static/images/screenshots/sign-in-form.png" width="auto">
+* All logged in users are able to click on an adventure and add their own comment, encouraging users to enter in a shared dialogue with each other.
 
-#### Sign Up (`admin`)
+<img src="src/assets/readme_images/display_comment.png">
 
-**Important! This page is a hidden template, and would be issued by the main school administrator (`Super User`) for other administration staff (`admins`) to access.** [Please find the page here](https://nickdevc-home-learning-hub.herokuapp.com/accounts/signup)
+#### Searchbar
 
-* This sign up page displays a clear, uncomplicated sign up form, supported by [Django's AllAuth applications](https://django-allauth.readthedocs.io/en/latest/). It allows school administration staff to sign up and create secure accounts to access restricted pages within the site.
+* This feature allows users to type in any combination of letters to find key words within the adventure posts. It will retrieve adventures that have matching words in their: titles, username or content.
 
-<img src="static/images/screenshots/sign-up-form.png" width="auto">
+<img src="src/assets/readme_images/search.png">
 
-#### Appointments (`admin`)
+#### Spinner
 
-* On successfully signing in, `admins` have access to the 'Appointments' page, where they can manage the appointments made by `users`. Here, the details of each individual appointment are clearly displayed in small cards. Again, with functionality in mind, the level of styling is minimal here as any more refinement may detract from the sole purpose of the app, and the goals of the `admins`. Each appointment also contains buttons for 'Edit' and 'Delete'. Pagination is in place to ensure that the screen does not become overcrowded with further appointments being added.
+* This asset is present throughout the app, and will always render when components are loading to give the user clear feedback and reassure them that the app is working. 
 
-* This user interaction also forms the second part of the `CRUD` design, that being the `READ` stage.
+<img src="src/assets/readme_images/spinner.png">
 
-<img src="static/images/screenshots/appointment-cards.png" width="auto">
+#### Dropdown Menu
 
-* On selecting 'Edit', `admins` are taken to the 'edit_appointment' template and can update any of the details for the appointment before saving these changes and being returned to the 'Appointments' page.
+* This asset is featured in the profile, comments and adventures, to allow users to gain a greater level of access to their own content. Provide them with the ability to edit and, the case of the comments and adventures, delete their content.
 
-* This user interaction also forms the third part of the `CRUD` design, that being the `UPDATE` stage.
-
-<img src="static/images/screenshots/edit-appointment-form.png" width="auto">
-
-* On selecting 'Delete', `admins` are presented with a modal, used as an element of defensive programming, in order to confirm the action before permanently deleting the appointment from both the front-end view and the database. On confirming the deletion, they are returned back to the 'Appointments' page.
-
-* This user interaction also forms the fourth part of the `CRUD` design, that being the `DELETE` stage.
-
-<img src="static/images/screenshots/delete-modal.png" width="auto">
-
-#### Upload Resources (`admin`)
-
-* The 'Upload Resources' page provides `admins` with a form which allows them to upload resources for `users` to use at home to support their child's learning. Here you can specify the name of the resource, the subject and with the `CloudinaryField`, all uploaded resources are stored in the [Cloudinary database](https://cloudinary.com/), and then rendered in the 'Resource Library' page for all `users` to access. 
-
-<img src="static/images/screenshots/upload-resource-form.png" width="auto">
+<img src="src/assets/readme_images/moreDropdown_menu.png">
 
 [Return to contents](#contents)
 
