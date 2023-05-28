@@ -160,22 +160,30 @@ The Learning Hub app is seperated into two apps, each serving a different purpos
 
 ### Colour
 
-* I decided to keep the colour scheme very simple and focused on one particular shade of green. Across the website, I have slightly altered the tone of this one shade (for shadows, highlights and links), but have not moved away from the base colour. The reasoning behind this was to establish a very clear and identifiable brand. In addition, other colours were not necessary in promoting the main purposes of the site. The result is clean and welcoming to users.
+* I decided to keep the colour scheme very simple and primarily focussed on natural colours. The main palette is a spectrum of warm brown tones, maintaining an earthy-feel and linking to the overall message of 'adventure' that the app is designed to inspire. The green tone adds accents to certain features and provides contrast to interactive elements so that users get enough feedback. There is clear consistency across the app, and the colours can also be seen within the logo itself.
 
-<img src="static/images/main-colour.png" width="auto">
+<img src="src/assets/readme_images/colours.png" width="auto">
 
 
 ### Typography
 
-* In keeping with the themes of 'education' and 'school', I felt that the 'schoolbell' font was most appropriate for headings throughout the site. It is playful and, due to the simplicity of the site's design, it does not detract from the serious purpose of the site itself. By keeping headings consistently in this font, the brand identity is further strengthened.
+* In keeping with the themes of 'nature' and 'simplicity', I felt that the 'Raleway' font was most appropriate for the majority of the app. In many ways, the font is very 'wooden' and 'stick-like', mimicking the branding I was attempting to potray with the unique logo.
 
-<img src="static/images/schoolbell-font.png" width="auto">
-
-* 'Roboto' font was used for any remaining text as it is simple to read and is highly accessible when screen sizes are altered.
-
-<img src="static/images/roboto-font.png" width="auto">
 
 [Return to contents](#contents)
+
+### Logo
+
+* Using the [Canva](https://www.canva.com/icons/) website, I worked on designing a personal logo to reflect the Warrior Weekend brand. It needed to portray a sense of the 'great outdoors' whilst maintaining consistency with the colour scheme present throughout the rest of the app. By using Canva, I was also able to make quick adjustments and edits, meaning that it was simple to alter the logo to suit other purposes (like the 'not found' message displayed to users). Whilst I would have loved to have spent more time on the design process, I was happy with how this turned out.
+
+#### Main Logo
+<img src="src/assets/WW_logo.png">
+
+#### Favicon
+<img src="public/favicon-16x16.png">
+
+#### Not Found (variation)
+<img src="src/assets/WW-no-results.png">
 
 ### Features 
 
@@ -310,6 +318,7 @@ The Learning Hub app is seperated into two apps, each serving a different purpos
 * [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - A set of web developer tools built directly into the Google Chrome browser. Used to help debug my code during development.
 * [Google Fonts](https://fonts.google.com/) - A font catalogue, providing a variety of free custom fonts.
 * [Font Awesome](https://fontawesome.com/) - An online icon library, used to provide small icons for social links and navigation functions.
+* [Coolors](https://coolors.co/) - Used to research colours and create a palette for the project.
 * [Balsamiq](https://balsamiq.com/wireframes/) - Used to create wireframes of the site during planning stages.
 * [Lucidchart](https://www.lucidchart.com/pages/) - Used to create and display model structures.
 
