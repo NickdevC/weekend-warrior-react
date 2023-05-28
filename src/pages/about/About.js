@@ -5,11 +5,9 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import styles from "../../styles/About.module.css";
 import appStyles from "../../App.module.css";
-import { useRedirect } from "../../hooks/useRedirect";
 import about_image from "../../assets/about_image.jpg";
 
 function About() {
-  useRedirect("loggedOut");
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
