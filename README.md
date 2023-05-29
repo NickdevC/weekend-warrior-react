@@ -265,10 +265,30 @@ I carried out some automated testing on the NavBar component, following test pro
 
 ## User Testing (manual)
 
-| Feature | User Action| Expected Outcome | Pass? |
-| ----- | -------- | ------- | ------- |
-| Homepage | View the site's purpose | Users should be presented with text and imagery to help explain the purposes of the site | PASS |
-
+| Feature | User Action | Outcome |
+| ----- | -------- | ------- |
+| Navigation | As a logged out user, I can see the 'home', 'log in', 'sign up', and 'about' links | PASS |
+| Navigation | As a logged in user, I can see the 'home', 'about', 'feed', 'favourites' and 'add adventure', links | PASS |
+| Navigation | As a logged in user, I can see my profile avatar displayed in the navbar | PASS |
+| Navigation | As a logged out user, if I click on a restricted feature, I cam redirected to the homepage | PASS |
+| About Page | As a user, I can view the About page and it's contents | PASS |
+| Home | As a user, I can see all adventure posts and scroll through them with infinite scroll enabled | PASS |
+| Home | As a user, I can see all 'most followed' profiles | PASS |
+| Home | As a user, I can click on an adventure post to see it's details | PASS |
+| Home | As a user, I can click on a profile to see more details about that user and their adventure posts | PASS |
+| Adventure Post | As a user, I can see all comments attached to an adventure post | PASS |
+| Adventure Post | As a logged in user, I can add comments to an adventure post | PASS |
+| Adventure Post | As a logged in user, I can favourite/unfavourite an adventure post | PASS |
+| Comments | As an owner of a comment, I can edit/delete my comment | PASS |
+| Comments | As a user, I can view the avatar associated with each comment and the date it was made | PASS |
+| Favourites Page | As a logged in user, my favourited posts are displayed in my favourites page (navbar) | PASS |
+| Profile Page | As a user, I can see all of a user's statistics | PASS |
+| Profile Page | As a user, I can see all adventure posts linked to the specific profile I am viewing | PASS |
+| Profile Page | As a logged in user, follow a profile from their profile page | PASS |
+| Profile Page | As an owner of a profile, I can edit my profile and update my username/password | PASS |
+| Follow/unfollow | As a logged in user, I can follow/unfollow profiles | PASS |
+| Feed Page | As a logged in user, I can view all adventure posts from those I follow in the 'Feed' page | PASS |
+| Refresh Tokens | As a logged in user, I continue to have access to my content over time without having to log back in each visit | PASS |
 
 
 ## Performance Testing
