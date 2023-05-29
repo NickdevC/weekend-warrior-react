@@ -6,9 +6,9 @@
 
 ## Important links
 
-[Deployed API Site](https://weekend-warrior-api.herokuapp.com)
+[Deployed API](https://weekend-warrior-api.herokuapp.com)
 
-[Deployed Site](https://weekend-warrior-nickdevc.herokuapp.com)
+[Deployed App](https://weekend-warrior-nickdevc.herokuapp.com)
 
 [Front-end Repository](https://github.com/NickdevC/weekend-warrior-react/)
 
