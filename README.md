@@ -89,34 +89,9 @@ All of the data structuring was completed when creating my backend API. The repo
 
 ### Wireframes
 
-#### Homepage
+<img src="src/assets/readme_images/desktop_wireframe.png" width="auto">
 
-<img src="static/images/wireframes/homepage.png" width="700">
-<img src="static/images/wireframes/homepage2.png" width="700">
-<img src="static/images/wireframes/homepage-mobile.png" width="200">
-
-#### Resource Library
-
-<img src="static/images/wireframes/resources.png" width="700">
-<img src="static/images/wireframes/resources2.png" width="700">
-<img src="static/images/wireframes/resources-mobile.png" width="200">
-
-#### Login
-
-<img src="static/images/wireframes/sign-in.png" width="700">
-
-#### Appointments
-
-<img src="static/images/wireframes/appointments.png" width="700">
-<img src="static/images/wireframes/appointments-mobile.png" width="200">
-
-#### Edit Appointments
-
-<img src="static/images/wireframes/edit-appointment.png" width="700">
-
-#### Upload Resource
-
-<img src="static/images/wireframes/upload-resource.png" width="700">
+<img src="src/assets/readme_images/mobile_wireframe.png" width="auto">
 
 
 ### Colour
@@ -274,6 +249,7 @@ All of the data structuring was completed when creating my backend API. The repo
 * Favicon - Used to create favicon for app.
 * AmIResponsive - Used to check responsiveness on multiple devices.
 * DrawSQL - Used to create and display model structures.
+* Canva - Used to design to appp logo
 
 [Return to contents](#contents)
 
